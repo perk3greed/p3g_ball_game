@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://e2c8mcptnt5w"]
+
+[ext_resource type="Script" path="res://ball stuff/BallNode.gd" id="1_d8mw3"]
+[ext_resource type="Script" path="res://ball stuff/ball_player_phys.gd" id="2_xf8vi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5fpfy"]
+bounce = 0.68
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_28bld"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4b1a"]
+emission_enabled = true
+emission = Color(1, 0.0470588, 0, 1)
+emission_energy_multiplier = 3.69
+
+[node name="BallNode" type="Node3D"]
+script = ExtResource("1_d8mw3")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 1.24
+physics_material_override = SubResource("PhysicsMaterial_5fpfy")
+gravity_scale = 0.7
+continuous_cd = true
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("2_xf8vi")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_28bld")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
+radius = 0.1
+material = SubResource("StandardMaterial3D_r4b1a")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 6.66746e-08, -5.65442e-08, 3.10031e-08, 0.87522, 0.483725, 8.17408e-08, 0.483725, -0.87522, 0, 3.09135, -1.00621)
+current = true
+fov = 105.5
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

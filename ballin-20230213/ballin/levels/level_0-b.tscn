@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dax306ydsmw2k"]
+
+[ext_resource type="Environment" uid="uid://bjafsokp1j85v" path="res://levels/Env.tres" id="1_4gsec"]
+[ext_resource type="PackedScene" uid="uid://bfbo6x12ddn0v" path="res://levels/3d models/sloper_gamer_level_0-b.tscn" id="2_7efwa"]
+
+[node name="Level0-b" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_4gsec")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.221549, 0.370026, -0.902218, 0, 0.92521, 0.379456, 0.975149, -0.0840681, 0.204979, 0, 0, 0)
+light_color = Color(0.654902, 0.435294, 0.168627, 1)
+light_angular_distance = 27.27
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.34202, -0.321394, 0.883022, 0, 0.939693, 0.34202, -0.939693, 0.116978, -0.321394, 0, 0, 0)
+light_color = Color(0.247059, 0.541176, 0.572549, 1)
+light_angular_distance = 27.27
+shadow_enabled = true
+
+[node name="sloperGamerLevel0-b" parent="." instance=ExtResource("2_7efwa")]
