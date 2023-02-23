@@ -2,13 +2,14 @@ extends Node
 
 signal move_speed_to_count(speed_final)
 
-
+#@onready var container3d = get_node("3dcontainer")
 
 var speed_score = 0 
 
 func _ready():
-	var meta3dnode = preload("res://meta_3d.tscn").instantiate()
-	self.add_child(meta3dnode)
+	pass
+#	var meta3dnode = preload("res://meta_3d.tscn").instantiate()
+#	container3d.add_child(meta3dnode)
 
 func _process(delta):
 	if Events.speed_for_export != null:
