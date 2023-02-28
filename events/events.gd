@@ -5,5 +5,5 @@ var speed_score_exported
 var speed_counted_score
 var score_rise_to_style
 
-
-#signal move_speed_to_count(speed_final)
+signal button_for_lvls_pressed(level_of_button) 
+signal out_of_the_bounds

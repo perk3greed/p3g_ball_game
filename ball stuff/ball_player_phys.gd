@@ -5,6 +5,7 @@ var velocity = Vector3.ZERO
 var fall_acceleration = 0.01
 var times_jumped = 0 
 var jump_ready = false
+signal out_of_the_bounds
 #var speed_for_export = 0 
 
 
@@ -33,3 +34,10 @@ func _process(delta):
 
 func _on_body_entered(body):
 	times_jumped = 0
+	if body.is_in_group("out_of_bounds"):
+		print("BTUHF")
+		Events.emit_signal("out_of_the_bounds")
+	if body.get_parent().is_in_group("out_of_bounds"):
+		print("fsfsfsf")
+		Events.emit_signal("out_of_the_bounds")
+

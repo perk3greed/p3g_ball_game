@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://hixrxby0tngi"]
+[gd_scene load_steps=6 format=3 uid="uid://hixrxby0tngi"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_lvdr2"]
 [ext_resource type="Script" path="res://speed_o_meter.gd" id="2_ed68b"]
 [ext_resource type="Script" path="res://speed_score.gd" id="3_35cmh"]
 [ext_resource type="Script" path="res://3dcontainer.gd" id="4_34liu"]
+[ext_resource type="PackedScene" uid="uid://crtsvgihvy54y" path="res://ui/menu.tscn" id="4_ujv1l"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lvdr2")
@@ -37,6 +38,9 @@ offset_bottom = 23.0
 theme_override_colors/font_outline_color = Color(0, 0.756863, 0.156863, 1)
 theme_override_font_sizes/font_size = 60
 script = ExtResource("3_35cmh")
+
+[node name="menu" parent="Control" instance=ExtResource("4_ujv1l")]
+layout_mode = 1
 
 [node name="3dcontainer" type="Node3D" parent="."]
 unique_name_in_owner = true

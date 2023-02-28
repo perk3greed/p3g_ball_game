@@ -2,12 +2,14 @@ extends Node
 
 signal move_speed_to_count(speed_final)
 
-#@onready var container3d = get_node("3dcontainer")
+@onready var container3d = get_node("3dcontainer")
+
 
 var speed_score = 0 
 
 func _ready():
-	pass
+	Events.connect("button_for_lvls_pressed", do_lvl_change)
+	Events.connect("out_of_the_bounds", do_menu_visible)
 #	var meta3dnode = preload("res://meta_3d.tscn").instantiate()
 #	container3d.add_child(meta3dnode)
 
@@ -22,3 +24,20 @@ func _process(delta):
 			self.emit_signal("move_speed_to_count", speed_score)
 			speed_score = 0
 		Events.speed_score_exported = speed_score/10
+
+
+func do_menu_visible():
+	get_node("Control/menu").visible = true
+
+
+
+func do_lvl_change(level_of_button):
+	var childs = container3d.get_children()
+	print(childs)
+	var container3dsize = childs.size()
+	for i in container3dsize:
+		var current_child = childs[i]
+		current_child.queue_free()
+	get_node("Control/menu").visible = false
+	container3d.load_lvl(level_of_button)
+	get_node("Control/menu").visible = false

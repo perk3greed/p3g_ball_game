@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://crtsvgihvy54y"]
+
+[ext_resource type="Texture2D" uid="uid://dq68gxtgr7rs3" path="res://icon.svg" id="1_eg6kv"]
+[ext_resource type="Script" path="res://ui/button_for_levels.gd" id="3_vfppe"]
+
+[node name="menu" type="Control"]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -64.0
+offset_right = 148.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_eg6kv")
+script = ExtResource("3_vfppe")
+level_of_button = 1
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_eg6kv")
+script = ExtResource("3_vfppe")
+level_of_button = 2
+
+[connection signal="pressed" from="GridContainer/TextureButton" to="GridContainer/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton2" to="GridContainer/TextureButton2" method="_on_pressed"]
