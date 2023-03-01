@@ -1,16 +1,13 @@
 extends RigidBody3D
 
-var speed = 1
-var velocity = Vector3.ZERO
-var fall_acceleration = 0.01
 var times_jumped = 0 
 var jump_ready = false
 signal out_of_the_bounds
-#var speed_for_export = 0 
+
 
 
 func _ready():
-	pass 
+	Events.connect("ball_is_out_of_bounds", restart_position) 
 
 func _process(delta):
 	Events.speed_for_export = linear_velocity.z
@@ -29,15 +26,25 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") and jump_ready:
 		apply_central_force(Vector3(0,300,0))
 		times_jumped += 1 
-
+	
+	
+	Events.positions = str(int(self.position.x)) + "___"+ str(int(self.position.y)) + "___" + str(int(self.position.z)) 
 
 
 func _on_body_entered(body):
 	times_jumped = 0
 	if body.is_in_group("out_of_bounds"):
-		print("BTUHF")
 		Events.emit_signal("out_of_the_bounds")
 	if body.get_parent().is_in_group("out_of_bounds"):
-		print("fsfsfsf")
 		Events.emit_signal("out_of_the_bounds")
 
+func restart_position():
+	var current_level = Levels.current_level_is
+	self.position = Vector3.ZERO
+#	 Levels.spawn_points_for_ball[current_level]
+#	you can do checkpoits like this with origins))
+	self.freeze = true
+	await get_tree().create_timer(0.5).timeout
+	self.freeze = false
+
+	

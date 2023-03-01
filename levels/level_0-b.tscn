@@ -1,8 +1,7 @@
-[gd_scene load_steps=64 format=3 uid="uid://dax306ydsmw2k"]
+[gd_scene load_steps=63 format=3 uid="uid://dax306ydsmw2k"]
 
 [ext_resource type="Environment" uid="uid://bjafsokp1j85v" path="res://levels/Env.tres" id="1_4gsec"]
 [ext_resource type="Material" uid="uid://buh7bcq4oxlrw" path="res://levels/3d models/floor-material.tres" id="2_q1ete"]
-[ext_resource type="PackedScene" uid="uid://e2c8mcptnt5w" path="res://ball stuff/ball_node.tscn" id="3_7j55a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ch1yu"]
 
@@ -709,6 +708,3 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sloperGamerLevel0-b/Cylinder007/Cylinder007_col"]
 shape = SubResource("ConcavePolygonShape3D_ls4bp")
-
-[node name="BallNode" parent="." instance=ExtResource("3_7j55a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -11)

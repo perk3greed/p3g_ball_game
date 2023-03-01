@@ -6,8 +6,19 @@ var level_variations = {
 	
 }
 
+var spawn_points_for_ball = {
+	1 : Vector3(0, 15, -15), 
+	2 : Vector3(0, 15, -30)
+	
+	
+	
+	
+}
+
+var current_level_is : int 
 
 
+var current_checkpoint : Vector3 = Vector3.ZERO
 
 
-
+var spawn_points : Vector3 = Vector3.ZERO
