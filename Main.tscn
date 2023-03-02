@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hixrxby0tngi"]
+[gd_scene load_steps=8 format=3 uid="uid://hixrxby0tngi"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_lvdr2"]
 [ext_resource type="Script" path="res://speed_o_meter.gd" id="2_ed68b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://3dcontainer.gd" id="4_34liu"]
 [ext_resource type="PackedScene" uid="uid://crtsvgihvy54y" path="res://ui/menu.tscn" id="4_ujv1l"]
 [ext_resource type="Script" path="res://positions.gd" id="5_737s7"]
+[ext_resource type="Environment" uid="uid://b1s0v2ujboto7" path="res://enviromets/ball_node.tres" id="7_secw2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lvdr2")
@@ -59,3 +60,8 @@ script = ExtResource("5_737s7")
 [node name="3dcontainer" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_34liu")
+
+[node name="untouchable3d" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="untouchable3d"]
+environment = ExtResource("7_secw2")
