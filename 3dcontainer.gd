@@ -2,14 +2,14 @@ extends Node3D
 
 
 
-
 func _ready():
-#	Events.connect("ball_is_out_of_bounds", restart_position) 
-	pass
-#
-#func restart_position():
-#	print("bguddddddddddddddddddddddddddddddddd")
-#	self.add_child(ball_instance)
+	Events.connect("ball_is_out_of_bounds", restart_position) 
+#	var ball_instance = load("res://ball stuff/ball_node.tscn").instantiate()
+
+func restart_position():
+	var ball_instance = load("res://ball stuff/ball_node.tscn").instantiate()
+	print("i_Should_add_a_child")
+	self.add_child(ball_instance)
 
 
 
@@ -21,3 +21,4 @@ func load_lvl(level_of_button):
 	var level_instanced = load(level_to_instance).instantiate()
 	self.add_child(level_instanced)
 	self.add_child(ball_instance)
+	return ball_instance

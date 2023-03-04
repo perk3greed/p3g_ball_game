@@ -36,6 +36,6 @@ material = SubResource("StandardMaterial3D_r4b1a")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 6.66746e-08, -5.65442e-08, 3.10031e-08, 0.87522, 0.483725, 8.17408e-08, 0.483725, -0.87522, 0, 3.09135, -1.00621)
-fov = 105.5
+fov = 90.0
 
 [connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

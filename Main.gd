@@ -11,7 +11,6 @@ func _ready():
 	Events.connect("button_for_lvls_pressed", do_lvl_change)
 	Events.connect("out_of_the_bounds", do_menu_visible)
 
-
 func _process(delta):
 	if Events.speed_for_export != null:
 		var speed_convert = Events.speed_for_export
@@ -27,6 +26,7 @@ func _process(delta):
 
 func do_menu_visible():
 	get_node("Control/menu").visible = true
+
 
 
 

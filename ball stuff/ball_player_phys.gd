@@ -10,6 +10,7 @@ func _ready():
 	Events.connect("ball_is_out_of_bounds", restart_position) 
 
 func _process(delta):
+	Events.rotations_for_camera = linear_velocity.x
 	Events.speed_for_export = linear_velocity.z
 	if times_jumped == 0:
 		jump_ready = true
@@ -41,6 +42,7 @@ func _on_body_entered(body):
 func restart_position():
 	var current_level = Levels.current_level_is
 	self.position = Vector3.ZERO
+	self.look_at(Vector3(0,0,1))
 #	 Levels.spawn_points_for_ball[current_level]
 #	you can do checkpoits like this with origins))
 	self.freeze = true

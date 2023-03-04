@@ -5,7 +5,7 @@ var speed_score_exported
 var speed_counted_score
 var score_rise_to_style
 var positions 
-
+var rotations_for_camera
 
 
 
