@@ -31,6 +31,7 @@ func do_menu_visible():
 
 
 func do_lvl_change(level_of_button):
+	Settings.camera_rotation_x = 0
 	var childs = container3d.get_children()
 	var container3dsize = childs.size()
 	for i in container3dsize:
@@ -40,3 +41,7 @@ func do_lvl_change(level_of_button):
 	get_node("Control/menu").visible = false
 	container3d.load_lvl(level_of_button)
 #	get_node("Control/menu").visible = false
+
+
+func _on_texture_button_pressed():
+	get_node("Control/menu").visible = true

@@ -3,7 +3,7 @@ extends RigidBody3D
 var times_jumped = 0 
 var jump_ready = false
 signal out_of_the_bounds
-
+var camera_normal :Vector3 = Vector3.ZERO
 
 
 func _ready():
@@ -17,7 +17,7 @@ func _process(delta):
 	else:
 		jump_ready = false
 	if Input.is_action_pressed("W"):
-		apply_central_force(Vector3(0,0,10))
+		apply_central_force(-camera_normal*10)
 	if Input.is_action_pressed("A"):
 		apply_central_force(Vector3(5,0,0))
 	if Input.is_action_pressed("S"):
@@ -49,4 +49,5 @@ func restart_position():
 	await get_tree().create_timer(0.5).timeout
 	self.freeze = false
 
-	
+func current_camera_normal_import(get_data):
+	camera_normal = get_data

@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export var level_of_button : int
+@export var level_of_button : String
 
 signal button_for_lvls_pressed(level_of_button)
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbyy18wo2tmne"]
+
+[ext_resource type="Script" path="res://levels/oob_area3d.gd" id="1_ymtvy"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjsuh"]
+margin = 0.918
+
+[node name="oob_area3d" type="Area3D" groups=["out_of_bounds"]]
+script = ExtResource("1_ymtvy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["out_of_bounds"]]
+transform = Transform3D(1, 0, 0, 0, 0.987688, -0.156434, 0, 0.156434, 0.987688, 0, -25, 0)
+shape = SubResource("WorldBoundaryShape3D_gjsuh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

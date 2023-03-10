@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://events/events.gd"
-Levels="*res://levels.gd"
+Levels="*res://events/levels.gd"
+Settings="*res://events/settings.gd"
 
 [display]
 
