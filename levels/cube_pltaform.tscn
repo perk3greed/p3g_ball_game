@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://deu4ppbw0hvda"]
+[gd_scene load_steps=3 format=3 uid="uid://deu4ppbw0hvda"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrm6"]
+albedo_color = Color(0.443137, 0.917647, 0, 1)
+roughness = 0.94
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ka0cw"]
 
@@ -6,6 +10,7 @@
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material = SubResource("StandardMaterial3D_ucrm6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
 

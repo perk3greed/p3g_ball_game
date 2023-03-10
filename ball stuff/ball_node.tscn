@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ball stuff/BallNode.gd" id="1_d8mw3"]
 [ext_resource type="Script" path="res://ball stuff/ball_player_phys.gd" id="2_xf8vi"]
-[ext_resource type="Shader" uid="uid://cxmlb5vi04qsk" path="res://ball stuff/ball_shade.tres" id="3_ucwtc"]
+[ext_resource type="Shader" path="res://ball stuff/ball_node.gdshader" id="3_jll72"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5fpfy"]
 bounce = 1.0
@@ -10,9 +10,10 @@ bounce = 1.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_28bld"]
 radius = 0.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c00sa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_adc1q"]
 render_priority = 0
-shader = ExtResource("3_ucwtc")
+shader = ExtResource("3_jll72")
+shader_parameter/colour = null
 
 [node name="BallNode" type="Node3D"]
 script = ExtResource("1_d8mw3")
@@ -33,7 +34,7 @@ shape = SubResource("SphereShape3D_28bld")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
 radius = 0.1
 smooth_faces = false
-material = SubResource("ShaderMaterial_c00sa")
+material = SubResource("ShaderMaterial_adc1q")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 6.66746e-08, -5.65442e-08, 3.10031e-08, 0.87522, 0.483725, 8.17408e-08, 0.483725, -0.87522, 0, 3.09135, -1.00621)

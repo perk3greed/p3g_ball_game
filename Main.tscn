@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crtsvgihvy54y" path="res://ui/menu.tscn" id="4_ujv1l"]
 [ext_resource type="Script" path="res://positions.gd" id="5_737s7"]
 [ext_resource type="Texture2D" uid="uid://dq68gxtgr7rs3" path="res://icon.svg" id="6_7iv5m"]
-[ext_resource type="Environment" uid="uid://b1s0v2ujboto7" path="res://enviromets/ball_node.tres" id="7_secw2"]
+[ext_resource type="Environment" uid="uid://6iwd4k5p87hb" path="res://enviromets/DURKA-white.tres" id="8_eadvx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lvdr2")
@@ -24,9 +24,8 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_colors/font_color = Color(0.101961, 0.517647, 0.8, 1)
-theme_override_colors/font_shadow_color = Color(0.937255, 0.556863, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.917647, 0, 0, 1)
+theme_override_colors/font_color = Color(0.0196078, 0.243137, 0.392157, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 80
 script = ExtResource("2_ed68b")
@@ -38,6 +37,7 @@ layout_mode = 0
 offset_left = 617.0
 offset_right = 657.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0.756863, 0.156863, 1)
 theme_override_font_sizes/font_size = 60
 script = ExtResource("3_35cmh")
@@ -76,6 +76,6 @@ script = ExtResource("4_34liu")
 [node name="untouchable3d" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="untouchable3d"]
-environment = ExtResource("7_secw2")
+environment = ExtResource("8_eadvx")
 
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

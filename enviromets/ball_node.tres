@@ -4,7 +4,6 @@
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eosa3"]
 panorama = ExtResource("1_reon0")
-filter = false
 
 [sub_resource type="Sky" id="Sky_0q0rb"]
 sky_material = SubResource("PanoramaSkyMaterial_eosa3")
@@ -13,5 +12,22 @@ sky_material = SubResource("PanoramaSkyMaterial_eosa3")
 background_mode = 2
 background_color = Color(0.862745, 0.341176, 0.662745, 1)
 sky = SubResource("Sky_0q0rb")
-ambient_light_source = 3
-ambient_light_color = Color(0.854902, 0.0235294, 0.27451, 1)
+ambient_light_color = Color(0.133333, 0.392157, 1, 1)
+ambient_light_energy = 6.34
+glow_levels/1 = 1.47
+glow_levels/2 = 0.53
+glow_levels/3 = 1.73
+glow_levels/4 = 1.03
+glow_levels/5 = 1.21
+glow_levels/6 = 0.73
+glow_levels/7 = 1.2
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.24
+glow_hdr_scale = 3.68
+glow_hdr_luminance_cap = 4.89
+fog_light_color = Color(0.996078, 0, 0.592157, 1)
+fog_light_energy = 0.37
+fog_density = 0.0156
