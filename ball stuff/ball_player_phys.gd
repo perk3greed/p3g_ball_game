@@ -10,15 +10,17 @@ var prev_color : Vector3 = Vector3(0, 0.2, 0.5)
 var rank : int = 0
 var prev_rank : int = 0
 var interp_coeff : float = 0
+var score
 
 @export var color_norank : Color = Color(0, 0.16, 0.43)
 @export var color_C : Color = Color(0, 0.84, 0.69)
 @export var color_B : Color = Color(0.93, 0.01, 0)
 @export var color_A : Color = Color(1, 0.85, 0)
-#var vector_norank : Vector3
-#var vector_C : Vector3
-#var vector_B : Vector3
-#var vector_A : Vector3
+
+@export var speed_norank : float = 4
+@export var speed_C : float = 9
+@export var speed_B : float = 18
+
 var color_dict : Array
 
 func color_to_vector_rgb(color_input: Color) -> Vector3:
@@ -35,12 +37,12 @@ func _ready():
 		color_to_vector_rgb(color_A) ]
 
 func _process(delta):
-	if prev_rank != rank: # rank was changed
-		interp_coeff = 0
-		prev_color = current_color
-	if interp_coeff < 1: # lerp from prev color to new with X seconds (delta/X)
-		interp_coeff += delta/0.1
-		current_color = prev_color.lerp(color_dict[rank], interp_coeff)
+#	if prev_rank != rank: # rank was changed
+#		interp_coeff = 0
+#		prev_color = current_color
+#	if interp_coeff < 1: # lerp from prev color to new with X seconds (delta/X)
+#		interp_coeff += delta/0.1
+#		current_color = prev_color.lerp(color_dict[rank], interp_coeff)
 	Mat.set_shader_parameter("colour", current_color)
 	Events.rotations_for_camera = linear_velocity.x
 	Events.speed_for_export = linear_velocity.z
@@ -63,16 +65,20 @@ func _process(delta):
 	
 #	Events.positions = str(int(self.position.x)) + "___"+ str(int(self.position.y)) + "___" + str(int(self.position.z)) 
 	Events.positions = "%d___%d___%d" % [position.x, position.y, position.z]
-	
-	if Events.score_rise_to_style != null:
-		if Events.score_rise_to_style < 5:
+	score = linear_velocity.z
+	if score != null:
+		if score < speed_norank:
 			rank = 0
-		if Events.score_rise_to_style >5 and Events.score_rise_to_style <10 :
+			current_color = color_dict[rank].lerp(color_dict[rank+1], score/5)
+		if score >= speed_norank and score < speed_C:
 			rank = 1
-		if Events.score_rise_to_style >10 and Events.score_rise_to_style <20 :
+			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-5)/5)
+		if score >= speed_C and score < speed_B:
 			rank = 2
-		if Events.score_rise_to_style >20 and Events.score_rise_to_style <40 :
+			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-10)/10)
+		if score >= speed_B:
 			rank = 3
+			current_color = color_dict[rank]
 
 func _on_body_entered(body):
 	times_jumped = 0
