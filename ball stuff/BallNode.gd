@@ -9,12 +9,12 @@ var startBall
 func _ready():
 	Events.connect("set_camera", do_camera_rotation)
 	Events.connect("ball_is_out_of_bounds", restart_position) 
-	var current_level = Levels.current_level_is
-	self.position = Levels.spawn_points_for_ball[current_level]
+#	var current_level = Levels.current_level_is
+	self.position = Vector3(0, 10, 0)
 	startCam = $Camera3D.position
 	startBall = $RigidBody3D.position
 	$Camera3D.make_current()
-	$Camera3D.rotate_x(Settings.camera_rotation_x)
+	$Camera3D.rotate_x(0)
 
 func restart_position():
 	$Camera3D.clear_current()

@@ -9,7 +9,7 @@ margin = 0.918
 script = ExtResource("1_ymtvy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["out_of_bounds"]]
-transform = Transform3D(1, 0, 0, 0, 0.987688, -0.156434, 0, 0.156434, 0.987688, 0, -25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 shape = SubResource("WorldBoundaryShape3D_gjsuh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
