@@ -11,6 +11,16 @@ var level_variations = {
 	8 : "res://levels/level_8.tscn",
 	9 : "res://levels/level_9.tscn",
 	10 : "res://levels/level_10.tscn",
+	11 : "res://levels/level_11.tscn",
+	12 : "res://levels/level_12.tscn",
+	13 : "res://levels/level_13.tscn", 
+	14 : "res://levels/level_14.tscn",
+	15 : "res://levels/level15.tscn",
+	16 : "res://levels/level_16.tscn",
+	17 : "res://levels/level_17.tscn",
+	18 : "res://levels/level18.tscn",
+	19 : "res://levels/level_19.tscn",
+	20 : "res://levels/level_20.tscn"
 }
 
 var spawn_points_for_ball = {
