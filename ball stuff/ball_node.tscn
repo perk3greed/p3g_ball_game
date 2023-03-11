@@ -28,6 +28,9 @@ max_contacts_reported = 2
 contact_monitor = true
 linear_damp = 0.1
 script = ExtResource("2_xf8vi")
+color_C = Color(0.301961, 0.580392, 0.172549, 1)
+color_B = Color(1, 0.568627, 0, 1)
+color_A = Color(0.866667, 0.0431373, 0, 1)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]

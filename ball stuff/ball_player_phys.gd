@@ -69,13 +69,13 @@ func _process(delta):
 	if score != null:
 		if score < speed_norank:
 			rank = 0
-			current_color = color_dict[rank].lerp(color_dict[rank+1], score/5)
+			current_color = color_dict[rank].lerp(color_dict[rank+1], score/speed_norank)
 		if score >= speed_norank and score < speed_C:
 			rank = 1
-			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-5)/5)
+			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-speed_norank)/(speed_C-speed_norank))
 		if score >= speed_C and score < speed_B:
 			rank = 2
-			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-10)/10)
+			current_color = color_dict[rank].lerp(color_dict[rank+1], (score-speed_C)/(speed_B-speed_C))
 		if score >= speed_B:
 			rank = 3
 			current_color = color_dict[rank]
