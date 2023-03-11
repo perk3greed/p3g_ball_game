@@ -1,0 +1,13 @@
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://df7huxiyvilum"]
+
+[sub_resource type="Gradient" id="Gradient_dukh1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.508197)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7tn4a"]
+
+[resource]
+width = 256
+height = 256
+color_ramp = SubResource("Gradient_dukh1")
+noise = SubResource("FastNoiseLite_7tn4a")
