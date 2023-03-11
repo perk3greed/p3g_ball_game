@@ -1,0 +1,259 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0e0hy1tkrp7t"]
+
+[ext_resource type="PackedScene" uid="uid://deu4ppbw0hvda" path="res://levels/cube_pltaform.tscn" id="1_ond7n"]
+[ext_resource type="PackedScene" uid="uid://bbb6xiah3txuc" path="res://levels/finish_line.tscn" id="2_tkcic"]
+[ext_resource type="PackedScene" uid="uid://dbyy18wo2tmne" path="res://enviromets/oob_area_3d.tscn" id="3_mbmfq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="cube_platform" parent="Node3D" instance=ExtResource("1_ond7n")]
+
+[node name="cube_platform2" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="cube_platform9" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="cube_platform10" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
+[node name="cube_platform11" parent="Node3D" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 75)
+
+[node name="cube_platform" parent="Node3D2" instance=ExtResource("1_ond7n")]
+
+[node name="cube_platform2" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="cube_platform9" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="cube_platform10" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
+[node name="cube_platform11" parent="Node3D2" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 160)
+
+[node name="cube_platform" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.69202)
+
+[node name="cube_platform2" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30798)
+
+[node name="cube_platform3" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.30798)
+
+[node name="cube_platform4" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.308)
+
+[node name="cube_platform5" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.308)
+
+[node name="cube_platform6" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.308)
+
+[node name="cube_platform7" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.308)
+
+[node name="cube_platform8" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.308)
+
+[node name="cube_platform9" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.308)
+
+[node name="cube_platform10" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.308)
+
+[node name="cube_platform11" parent="Node3D3" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46.308)
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 240)
+
+[node name="cube_platform" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.69202)
+
+[node name="cube_platform2" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30798)
+
+[node name="cube_platform3" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.30798)
+
+[node name="cube_platform4" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.308)
+
+[node name="cube_platform5" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.308)
+
+[node name="cube_platform6" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.308)
+
+[node name="cube_platform7" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.308)
+
+[node name="cube_platform8" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.308)
+
+[node name="cube_platform9" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.308)
+
+[node name="cube_platform10" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.308)
+
+[node name="cube_platform11" parent="Node3D4" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46.308)
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 320)
+
+[node name="cube_platform" parent="Node3D5" instance=ExtResource("1_ond7n")]
+
+[node name="cube_platform2" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="cube_platform9" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="cube_platform10" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
+[node name="cube_platform11" parent="Node3D5" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="Node3D6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 400)
+
+[node name="cube_platform" parent="Node3D6" instance=ExtResource("1_ond7n")]
+
+[node name="cube_platform2" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="cube_platform9" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="cube_platform10" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
+[node name="cube_platform11" parent="Node3D6" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="Node3D7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 480)
+
+[node name="cube_platform" parent="Node3D7" instance=ExtResource("1_ond7n")]
+
+[node name="cube_platform2" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="cube_platform9" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="cube_platform10" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
+[node name="cube_platform11" parent="Node3D7" instance=ExtResource("1_ond7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="finish_line" parent="." instance=ExtResource("2_tkcic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1297, 554.34)
+
+[node name="oob_area3d" parent="." instance=ExtResource("3_mbmfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.03872, 0)

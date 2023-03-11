@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dax306ydsmw2k"]
+
+[ext_resource type="PackedScene" uid="uid://dbyy18wo2tmne" path="res://enviromets/oob_area_3d.tscn" id="1_o4qws"]
+[ext_resource type="PackedScene" uid="uid://deu4ppbw0hvda" path="res://levels/cube_pltaform.tscn" id="2_nrvmi"]
+[ext_resource type="PackedScene" uid="uid://bbb6xiah3txuc" path="res://levels/finish_line.tscn" id="3_lktu6"]
+[ext_resource type="Script" path="res://levels/finish_line.gd" id="4_5li0g"]
+
+[node name="Level0-b" type="Node3D"]
+
+[node name="oob_area3d" parent="." instance=ExtResource("1_o4qws")]
+
+[node name="cube_platform" parent="." instance=ExtResource("2_nrvmi")]
+
+[node name="cube_platform2" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="cube_platform3" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="cube_platform4" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="cube_platform5" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="cube_platform6" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="cube_platform7" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="cube_platform8" parent="." instance=ExtResource("2_nrvmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="finish_line" parent="." instance=ExtResource("3_lktu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 35)
+script = ExtResource("4_5li0g")
