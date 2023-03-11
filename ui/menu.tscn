@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://crtsvgihvy54y"]
+[gd_scene load_steps=7 format=3 uid="uid://crtsvgihvy54y"]
 
+[ext_resource type="Script" path="res://ui/parent_menu.gd" id="1_55j10"]
 [ext_resource type="Texture2D" uid="uid://dq68gxtgr7rs3" path="res://icon.svg" id="1_eg6kv"]
 [ext_resource type="Script" path="res://ui/button_for_levels.gd" id="3_vfppe"]
+[ext_resource type="Texture2D" uid="uid://bljjh0wad27l3" path="res://ui/black-blue.png" id="4_o3d3c"]
+[ext_resource type="Texture2D" uid="uid://ccm3ereftum7" path="res://ui/blue-red.png" id="5_ml5f6"]
+[ext_resource type="Texture2D" uid="uid://bia4008r80jus" path="res://ui/green-redtled.png" id="6_8o0gu"]
 
 [node name="menu" type="Control"]
 custom_minimum_size = Vector2(1600, 900)
@@ -11,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_55j10")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
@@ -25,8 +30,8 @@ offset_right = 148.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
+theme_override_constants/h_separation = 120
+theme_override_constants/v_separation = 60
 columns = 3
 
 [node name="TextureButton" type="TextureButton" parent="GridContainer"]
@@ -37,19 +42,19 @@ level_of_button = 1
 
 [node name="TextureButton2" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("4_o3d3c")
 script = ExtResource("3_vfppe")
 level_of_button = 2
 
 [node name="TextureButton3" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("5_ml5f6")
 script = ExtResource("3_vfppe")
 level_of_button = 3
 
 [node name="TextureButton4" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("6_8o0gu")
 script = ExtResource("3_vfppe")
 level_of_button = 4
 
@@ -61,19 +66,19 @@ level_of_button = 5
 
 [node name="TextureButton6" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("4_o3d3c")
 script = ExtResource("3_vfppe")
 level_of_button = 6
 
 [node name="TextureButton7" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("5_ml5f6")
 script = ExtResource("3_vfppe")
 level_of_button = 7
 
 [node name="TextureButton8" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("6_8o0gu")
 script = ExtResource("3_vfppe")
 level_of_button = 8
 
@@ -85,39 +90,162 @@ level_of_button = 9
 
 [node name="TextureButton10" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("4_o3d3c")
 script = ExtResource("3_vfppe")
 level_of_button = 10
 
 [node name="TextureButton11" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("5_ml5f6")
 script = ExtResource("3_vfppe")
 level_of_button = 11
 
 [node name="TextureButton12" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("6_8o0gu")
 script = ExtResource("3_vfppe")
 level_of_button = 12
 
-[node name="TextureButton13" type="TextureButton" parent="GridContainer"]
+[node name="GridContainer2" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1288.0
+offset_top = -346.0
+offset_right = 1912.0
+offset_bottom = 346.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 120
+theme_override_constants/v_separation = 60
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("1_eg6kv")
 script = ExtResource("3_vfppe")
 level_of_button = 13
 
-[node name="TextureButton14" type="TextureButton" parent="GridContainer"]
+[node name="TextureButton2" type="TextureButton" parent="GridContainer2"]
 layout_mode = 2
-texture_normal = ExtResource("1_eg6kv")
+texture_normal = ExtResource("4_o3d3c")
 script = ExtResource("3_vfppe")
 level_of_button = 14
 
-[node name="TextureButton15" type="TextureButton" parent="GridContainer"]
+[node name="TextureButton3" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_ml5f6")
+script = ExtResource("3_vfppe")
+level_of_button = 15
+
+[node name="TextureButton4" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_8o0gu")
+script = ExtResource("3_vfppe")
+level_of_button = 16
+
+[node name="TextureButton5" type="TextureButton" parent="GridContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("1_eg6kv")
 script = ExtResource("3_vfppe")
-level_of_button = 15
+level_of_button = 17
+
+[node name="TextureButton6" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_o3d3c")
+script = ExtResource("3_vfppe")
+level_of_button = 18
+
+[node name="TextureButton7" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_ml5f6")
+script = ExtResource("3_vfppe")
+level_of_button = 19
+
+[node name="TextureButton8" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_8o0gu")
+script = ExtResource("3_vfppe")
+level_of_button = 20
+
+[node name="TextureButton9" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_eg6kv")
+script = ExtResource("3_vfppe")
+level_of_button = 21
+
+[node name="TextureButton10" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_o3d3c")
+script = ExtResource("3_vfppe")
+level_of_button = 22
+
+[node name="TextureButton11" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_ml5f6")
+script = ExtResource("3_vfppe")
+level_of_button = 23
+
+[node name="TextureButton12" type="TextureButton" parent="GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_8o0gu")
+script = ExtResource("3_vfppe")
+level_of_button = 24
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_ml5f6")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1472.0
+offset_top = -64.0
+offset_right = 1600.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_ml5f6")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1600.0
+offset_top = -64.0
+offset_right = 1728.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
 
 [connection signal="pressed" from="GridContainer/TextureButton" to="GridContainer/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton2" to="GridContainer/TextureButton2" method="_on_pressed"]
@@ -131,6 +259,19 @@ level_of_button = 15
 [connection signal="pressed" from="GridContainer/TextureButton10" to="GridContainer/TextureButton10" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton11" to="GridContainer/TextureButton11" method="_on_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton12" to="GridContainer/TextureButton12" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer/TextureButton13" to="GridContainer/TextureButton13" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer/TextureButton14" to="GridContainer/TextureButton14" method="_on_pressed"]
-[connection signal="pressed" from="GridContainer/TextureButton15" to="GridContainer/TextureButton15" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton" to="GridContainer2/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton2" to="GridContainer2/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton3" to="GridContainer2/TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton4" to="GridContainer2/TextureButton4" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton5" to="GridContainer2/TextureButton5" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton6" to="GridContainer2/TextureButton6" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton7" to="GridContainer2/TextureButton7" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton8" to="GridContainer2/TextureButton8" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton9" to="GridContainer2/TextureButton9" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton10" to="GridContainer2/TextureButton10" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton11" to="GridContainer2/TextureButton11" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer2/TextureButton12" to="GridContainer2/TextureButton12" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_2_pressed"]

@@ -18,12 +18,12 @@ func _process(delta):
 		jump_ready = false
 	if Input.is_action_pressed("W"):
 		apply_central_force(Vector3(0,0,6))
-	if Input.is_action_pressed("A"):
-		apply_central_force(Vector3(5,0,0))
+#	if Input.is_action_pressed("A"):
+#		apply_central_force(Vector3(5,0,0))
 	if Input.is_action_pressed("S"):
 		apply_central_force(Vector3(0,0,-5))
-	if Input.is_action_pressed("D"):
-		apply_central_force(Vector3(-5,0,0))
+#	if Input.is_action_pressed("D"):
+#		apply_central_force(Vector3(-5,0,0))
 	if Input.is_action_just_pressed("ui_accept") and jump_ready:
 		apply_central_force(Vector3(0,300,0))
 		times_jumped += 1 
