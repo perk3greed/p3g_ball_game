@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://cxmlb5vi04qsk" path="res://ball stuff/ball_shade.tres" id="3_ucwtc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5fpfy"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_28bld"]
@@ -20,10 +21,11 @@ script = ExtResource("1_d8mw3")
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 1.24
 physics_material_override = SubResource("PhysicsMaterial_5fpfy")
-gravity_scale = 0.7
+gravity_scale = 0.6
 continuous_cd = true
 max_contacts_reported = 2
 contact_monitor = true
+linear_damp = 0.1
 script = ExtResource("2_xf8vi")
 metadata/_edit_group_ = true
 

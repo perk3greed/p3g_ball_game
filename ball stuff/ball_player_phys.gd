@@ -12,12 +12,12 @@ func _ready():
 func _process(delta):
 	Events.rotations_for_camera = linear_velocity.x
 	Events.speed_for_export = linear_velocity.z
-	if times_jumped == 0:
+	if times_jumped < 2:
 		jump_ready = true
 	else:
 		jump_ready = false
 	if Input.is_action_pressed("W"):
-		apply_central_force(-camera_normal*10)
+		apply_central_force(Vector3(0,0,6))
 	if Input.is_action_pressed("A"):
 		apply_central_force(Vector3(5,0,0))
 	if Input.is_action_pressed("S"):
@@ -38,6 +38,11 @@ func _on_body_entered(body):
 		Events.emit_signal("out_of_the_bounds")
 	if body.get_parent().is_in_group("out_of_bounds"):
 		Events.emit_signal("out_of_the_bounds")
+	if body.is_in_group("finish_group"):
+		Events.emit_signal("out_of_the_bounds")
+
+
+
 
 func restart_position():
 	var current_level = Levels.current_level_is

@@ -4,7 +4,13 @@ var level_variations = {
 	1 : "res://levels/level_0-b.tscn",
 	2 : "res://levels/test_lvl_2.tscn",
 	3 : "res://levels/test_lvl_3.tscn",
-	4 : "res://levels/level_4_main.tscn"
+	4 : "res://levels/level_4_main.tscn",
+	5 : "res://levels/level_5.tscn",
+	6 : "res://levels/level6.tscn",
+	7 : "res://levels/level_7.tscn",
+	8 : "res://levels/level_8.tscn",
+	9 : "res://levels/level_9.tscn",
+	10 : "res://levels/level_10.tscn",
 }
 
 var spawn_points_for_ball = {
