@@ -20,6 +20,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 0
 offset_right = 40.0

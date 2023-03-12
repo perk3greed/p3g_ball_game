@@ -24,6 +24,8 @@ func _process(delta):
 			speed_score = 0
 		Events.speed_score_exported = speed_score/10
 	if Input.is_action_just_pressed("R"):
+		self.do_lvl_change(Levels.current_level_that_is_set)
+		Events.current_most_distant_cube = 0
 		Events.emit_signal("ball_is_out_of_bounds")
 
 func do_menu_visible():

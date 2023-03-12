@@ -33,7 +33,8 @@ func _process(delta):
 	var rotate_y = Events.rotations_for_camera
 	$Camera3D.position = startCam + ($RigidBody3D.position - startBall)
 	if rotate_y != null:
-		$Camera3D.rotate_y((rotate_y)*delta/10)
+		pass
+#		$Camera3D.rotate_y((rotate_y)*delta/10)
 	if rotate_z != null:
 #		$Camera3D.rotate_x(-(rotate_z)*delta/1000)
 		if rotate_z > 10 and $Camera3D.fov <120:
@@ -43,4 +44,4 @@ func _process(delta):
 	
 	var camera_normal = $Camera3D.basis.z
 	$Camera3D.basis.orthonormalized()
-	$RigidBody3D.current_camera_normal_import(camera_normal)
+	

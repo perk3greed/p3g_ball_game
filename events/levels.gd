@@ -23,10 +23,8 @@ var level_variations = {
 	20 : "res://levels/level_20.tscn",
 	21 : "res://levels/level_21.tscn",
 	22 : "res://levels/level22.tscn",
-	23 : "res://levels/level23.tscn"
-	
-	
-	
+	23 : "res://levels/level23.tscn",
+	24 : "res://levels/level24.tscn",
 	
 	
 }
@@ -40,7 +38,7 @@ var spawn_points_for_ball = {
 	
 }
 
-var current_level_is : int 
+var current_level_that_is_set : int 
 
 
 var current_checkpoint : Vector3 = Vector3.ZERO

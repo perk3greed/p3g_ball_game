@@ -52,18 +52,18 @@ func _process(delta):
 		jump_ready = false
 	if Input.is_action_pressed("W"):
 		apply_central_force(Vector3(0,0,6))
-#	if Input.is_action_pressed("A"):
-#		apply_central_force(Vector3(5,0,0))
+	if Input.is_action_pressed("A"):
+		apply_central_force(Vector3(5,0,0))
 	if Input.is_action_pressed("S"):
 		apply_central_force(Vector3(0,0,-5))
-#	if Input.is_action_pressed("D"):
-#		apply_central_force(Vector3(-5,0,0))
+	if Input.is_action_pressed("D"):
+		apply_central_force(Vector3(-5,0,0))
 	if Input.is_action_just_pressed("ui_accept") and jump_ready:
 		apply_central_force(Vector3(0,300,0))
 		times_jumped += 1 
 	
 	
-#	Events.positions = str(int(self.position.x)) + "___"+ str(int(self.position.y)) + "___" + str(int(self.position.z)) 
+	Events.ball_distance_z = self.position.z
 	Events.positions = "%d___%d___%d" % [position.x, position.y, position.z]
 	score = linear_velocity.z
 	if score != null:
@@ -93,7 +93,7 @@ func _on_body_entered(body):
 
 
 func restart_position():
-	var current_level = Levels.current_level_is
+	var current_level = Levels.current_level_that_is_set
 	self.position = Vector3.ZERO
 	self.look_at(Vector3(0,0,1))
 #	 Levels.spawn_points_for_ball[current_level]
@@ -101,6 +101,3 @@ func restart_position():
 	self.freeze = true
 	await get_tree().create_timer(0.5).timeout
 	self.freeze = false
-
-func current_camera_normal_import(get_data):
-	camera_normal = get_data
