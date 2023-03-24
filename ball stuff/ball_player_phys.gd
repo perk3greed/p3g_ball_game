@@ -51,7 +51,7 @@ func _ready():
 		color_to_vector_rgb(color_A) ]
 
 func _process(delta):
-	print(delta)
+#	print(delta)
 	var move_direction := Vector3.ZERO
 	
 	if $SpringArm3D/Camera3D.fov < 120:
@@ -140,6 +140,8 @@ func _on_body_entered(body):
 		Events.emit_signal("out_of_the_bounds")
 	if body.is_in_group("finish_group"):
 		Events.emit_signal("out_of_the_bounds")
+	if body.is_in_group("cube_group"):
+		Events.emit_signal("bounced_cube", body)
 
 
 func restart_position():

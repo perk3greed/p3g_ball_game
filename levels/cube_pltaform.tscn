@@ -1,14 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://deu4ppbw0hvda"]
+[gd_scene load_steps=7 format=3 uid="uid://deu4ppbw0hvda"]
 
-[ext_resource type="Texture2D" uid="uid://buj1er85heikv" path="res://levels/20230310 texxxxxxture.png" id="1_lnl6j"]
+[ext_resource type="Script" path="res://levels/cube_pltaform.gd" id="1_sdd8q"]
+[ext_resource type="Shader" path="res://levels/cube_pltaform.gdshader" id="1_ua5t7"]
+[ext_resource type="Texture2D" uid="uid://dqp7x217fu8rv" path="res://levels/20230310 texxxxxxture rough.png" id="2_ivjdc"]
+[ext_resource type="Texture2D" uid="uid://vkvunxj8anfj" path="res://levels/20230310 texxxxxxture norm.png" id="3_gjsxk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucrm6"]
-transparency = 1
-albedo_color = Color(0.701961, 0.00392157, 0.380392, 1)
-albedo_texture = ExtResource("1_lnl6j")
-roughness = 0.0
-emission = Color(0.796078, 0.0313726, 0.298039, 1)
-emission_energy_multiplier = 0.2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40oug"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_ua5t7")
+shader_parameter/albedo = Color(0.270588, 0.321569, 0.329412, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 0.5
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/cube_3d_offset = Vector3(0, 0, 0)
+shader_parameter/cube_3d_scale = Vector3(1, 1, 1)
+shader_parameter/unique_id = null
+shader_parameter/current_id = null
+shader_parameter/texture_metallic = ExtResource("2_ivjdc")
+shader_parameter/texture_roughness = ExtResource("2_ivjdc")
+shader_parameter/texture_normal = ExtResource("3_gjsxk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ka0cw"]
 
@@ -16,9 +34,12 @@ emission_energy_multiplier = 0.2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-material = SubResource("StandardMaterial3D_ucrm6")
+material = SubResource("ShaderMaterial_40oug")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D" groups=["cube_group"]]
+script = ExtResource("1_sdd8q")
+animation_time = 0.5
+animation_subtlety = Vector3(20, 10, 20)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_ka0cw")

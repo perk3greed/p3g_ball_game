@@ -1,5 +1,7 @@
 extends Node
 
+var collided_cube_ref : StaticBody3D
+
 var speed_for_export := 0
 var speed_score_exported
 var speed_counted_score
@@ -17,6 +19,7 @@ var middle_cube_deviation : float = 0
 var left_cube_deviation : float = 0
 var right_cube_deviation : float = 0
 
+signal bounced_cube(collided_cube_ref)
 
 signal set_camera
 signal button_for_lvls_pressed(level_of_button) 
