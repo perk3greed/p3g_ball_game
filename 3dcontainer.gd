@@ -8,10 +8,12 @@ func _ready():
 
 func restart_position():
 	var ball_instance = load("res://ball stuff/ball_node.tscn").instantiate()
+#	var ball_instance = load("res://ball stuff/new_player.tscn").instantiate()
 	print("i_Should_add_a_child")
 	self.add_child(ball_instance)
 
 func load_lvl(level_of_button):
+#	var ball_instance = load("res://ball stuff/new_player.tscn").instantiate()
 	var ball_instance = load("res://ball stuff/ball_node.tscn").instantiate()
 	Levels.current_level_that_is_set = level_of_button
 	var level_to_instance = str(Levels.level_variations[level_of_button])
