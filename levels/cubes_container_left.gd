@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@onready var cube_for_instance = load("res://levels/cube_pltaform.tscn")
+@onready var cube_for_instance = load("res://levels/3d models/long_board.tscn")
 
 var current_cube_position_spawn : float = 0
 var current_cube_elevation : float = 0
@@ -19,28 +19,28 @@ func create_lines_of_cubes(current_ball_speed):
 	var random_elevation : float
 	var random_position : float 
 
-	
-	if current_ball_speed < 5:
-		random_position = rng.randi_range(5, 5)
-		random_elevation = rng.randi_range(-1, 0)
-	elif current_ball_speed >= 5 and current_ball_speed < 12 :
-		random_position = rng.randi_range(5, 5) 
-		random_elevation = rng.randf_range(-1.5, 0.5)
-	else:
-		random_position = rng.randi_range(5, 5) 
-		random_elevation = rng.randf_range(-2, 1)
-	for i in range(7):
-		var cube = cube_for_instance.instantiate()
-		self.add_child(cube)
-		cube.position.z = current_cube_position_spawn + random_position 
+#
+#	if current_ball_speed < 5:
+#		random_position = rng.randi_range(5, 5)
+#		random_elevation = rng.randi_range(-1, 0)
+#	elif current_ball_speed >= 5 and current_ball_speed < 12 :
+#		random_position = rng.randi_range(5, 5) 
+#		random_elevation = rng.randf_range(-1.5, 0.5)
+#	else:
+#		random_position = rng.randi_range(5, 5) 
+#		random_elevation = rng.randf_range(-2, 1)
+#	for i in range(7):
+	var cube = cube_for_instance.instantiate()
+	self.add_child(cube)
+	cube.position.z = current_cube_position_spawn + 10
 #		cube.position.y = current_cube_elevation + random_elevation
 #		cube.rotate_x(PI/PI/random_elevation*2)
-		current_cube_position_spawn = cube.position.z
-		current_cube_elevation = cube.position.y
-		Events.left_cube_position = cube.position.z
-		Events.left_cube_deviation = cube.position.y
-		if i == 1:
-			cube.position.z = current_cube_position_spawn + random_position + current_ball_speed/2
+	current_cube_position_spawn = cube.position.z
+	current_cube_elevation = cube.position.y
+	Events.left_cube_position = cube.position.z
+	Events.left_cube_deviation = cube.position.y
+#		if i == 1:
+#			cube.position.z = current_cube_position_spawn 
 
 
 

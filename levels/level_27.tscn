@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://jdee8xphfmfi"]
+
+[ext_resource type="Script" path="res://levels/level_27.gd" id="1_pmcth"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, -15)
+script = ExtResource("1_pmcth")

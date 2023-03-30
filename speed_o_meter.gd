@@ -2,13 +2,16 @@ extends Label
 
 
 func _process(delta):
-	if Events.score_rise_to_style != null:
-		if Events.score_rise_to_style < 5:
-			self.text = "\nz-speed: %3.2f\ncapped lol" % Events.speed_for_export
-		if Events.score_rise_to_style >5 and Events.score_rise_to_style <10 :
-			self.text = "C\nz-speed: %3.2f\ncapped lol" % Events.speed_for_export
-		if Events.score_rise_to_style >10 and Events.score_rise_to_style <20 :
-			self.text = "B\nz-speed: %3.2f\ncapped lol" % Events.speed_for_export
-		if Events.score_rise_to_style >20 and Events.score_rise_to_style <40 :
-			self.text = "A\nz-speed: %3.2f\ncapped lol" % Events.speed_for_export
+	self.text = str("style_counter = " , str(Events.style_counter_exported)) 
 	
+#
+#	 "style_counter_additive = " , str(Events.style_counter_additive_exported) \ "airtime = " , str(Events.airtime_exported))
+
+
+
+#
+#var airtime :int 
+#var speed_for_style :int
+#var bounds_for_style :int
+#var combo_for_style :int
+#var part_of_style : float

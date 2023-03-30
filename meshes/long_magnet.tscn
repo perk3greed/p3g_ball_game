@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmycogp256nln"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbikd"]
+resource_local_to_scene = true
+albedo_color = Color(0.807843, 0, 0.298039, 1)
+metallic = 1.0
+roughness = 0.32
+backlight = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2m50"]
+size = Vector3(0.6, 6, 15)
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["magnet"]]
+
+[node name="cube_visual" type="CSGBox3D" parent="." groups=["magnet"]]
+transform = Transform3D(-2.62268e-08, -6, 0, 0.6, -2.62268e-07, 0, 0, 0, 15, 0, 0, 0)
+material = SubResource("StandardMaterial3D_pbikd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["magnet"]]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_y2m50")

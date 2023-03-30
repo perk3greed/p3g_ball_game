@@ -17,6 +17,21 @@ var prev_rank : int = 0
 var interp_coeff : float = 0
 var score
 var look_vector = Vector3(1,1,1)
+var current_accelereation_mode :int
+var current_difficulty_level :int
+var current_jump_level :int
+var max_permitted_speed :int
+var damp_from_difficulty :int
+var style :float 
+var style_counter :int
+var style_counter_additive :int
+var airtime :int 
+var speed_for_style :int
+var bounds_for_style :int
+var combo_for_style :int
+var part_of_style : float
+
+
 
 @export var color_norank : Color = Color(0, 0.16, 0.43)
 @export var color_C : Color = Color(0, 0.84, 0.69)
@@ -33,6 +48,7 @@ func color_to_vector_rgb(color_input: Color) -> Vector3:
 	return Vector3(color_input.r, color_input.g, color_input.b)
 
 func _ready():
+	Events.connect("sonic_entered", do_a_boost)
 	Events.connect("ball_is_out_of_bounds", restart_position)
 	Mat = get_node("CSGSphere3D").get_material()
 	
@@ -41,9 +57,6 @@ func _ready():
 	
 	$SpringArm3D.rotate_x(0.2)
 	
-	
-	
-	
 	color_dict = [
 		color_to_vector_rgb(color_norank),
 		color_to_vector_rgb(color_C),
@@ -51,7 +64,48 @@ func _ready():
 		color_to_vector_rgb(color_A) ]
 
 func _process(delta):
-#	print(delta)
+			#style counter part
+	airtime += int(1*delta)
+	style_counter_additive += int((speed_for_style*2 + airtime*10 + bounds_for_style + combo_for_style)/10)
+	style_counter += int((style_counter_additive - 20)/10)
+	style_counter -= int(part_of_style)
+	part_of_style = style_counter/2
+	if style_counter < 1:
+		style_counter = 0
+	
+	style += style_counter*delta
+	Events.style_exported = style
+	Events.style_counter_exported = style_counter
+	Events.style_counter_additive_exported = style_counter_additive
+	
+	
+	
+	
+	Events.airtime_exported = airtime
+	Events.speed_for_style_exported = speed_for_style
+	Events.bounds_for_style_exported = bounds_for_style
+	Events.combo_for_style_exported = combo_for_style
+	Events.part_of_style_exported = part_of_style
+	
+	
+	
+	
+	
+	if linear_velocity.z > current_jump_level*10:
+		speed_for_style = int((linear_velocity.z)/10)
+	if linear_velocity.z < current_jump_level*10:
+		speed_for_style = 0
+	
+	if position.x < -5 or position.x > 5:
+		bounds_for_style += int(delta*2)
+		
+	if position.x < 5 and position.x > -5: 
+		bounds_for_style = 0
+	
+	
+	
+	
+			#camera control part
 	var move_direction := Vector3.ZERO
 	
 	if $SpringArm3D/Camera3D.fov < 120:
@@ -86,46 +140,71 @@ func _process(delta):
 
 
 func _physics_process(delta):
-		
+	
 	if times_jumped < 2:
 		jump_ready = true
 	else:
 		jump_ready = false
 	
+	current_difficulty_level = Events.difficulty_level
+	if current_difficulty_level == 0:
+		current_accelereation_mode = 8
+		current_jump_level = 5
+		max_permitted_speed = 8
+		
+	if current_difficulty_level == 1:
+		current_accelereation_mode = 6
+		current_jump_level = 7
+		max_permitted_speed = 11
+	
+	if current_difficulty_level == 2:
+		current_accelereation_mode = 4
+		current_jump_level = 9
+		max_permitted_speed = 100
+
+	
+	if current_difficulty_level == 3:
+		current_accelereation_mode = 3
+		current_jump_level = 12
+		max_permitted_speed = 100
+	
+	if current_difficulty_level == 4:
+		current_accelereation_mode = 2
+		current_jump_level = 15
+		max_permitted_speed = 100
+	
+	
+	
 	var look_direction = $SpringArm3D.global_rotation
 	var movement_vector = 0
 	look_vector = -$SpringArm3D/Camera3D.global_transform.basis.z
 	
-	if Input.is_action_pressed("W"):
-		movement_vector = look_vector.normalized()
-		movement_vector.y = 0
-		apply_central_impulse(self.basis.z.normalized()/4)
+#	if Input.is_action_pressed("W"):
+	movement_vector = look_vector.normalized()
+	movement_vector.y = 0
+	apply_central_impulse(self.basis.z.normalized()/5)
+
 	if Input.is_action_pressed("A"):
-		
 		apply_central_impulse(self.basis.x.normalized()/4)
-		
-		
-#		rotate_y(lerp_angle(0 , 0.1, delta*15 ))
+
 	if Input.is_action_pressed("S"):
 		look_vector = $SpringArm3D/Camera3D.global_transform.basis.z
 		movement_vector = look_vector.normalized()
 		movement_vector.y = 0
-		apply_central_impulse(movement_vector/4)
+		apply_central_impulse(movement_vector/6)
 	if Input.is_action_pressed("D"):
-		
 		apply_central_impulse(-self.basis.x.normalized()/4)
-		
-#		rotate_y(lerp_angle(0 , -0.1, delta*15 ))
+
 	if Input.is_action_just_pressed("ui_accept") and jump_ready:
-		apply_central_impulse(Vector3(0,8,0))
+		apply_central_impulse(Vector3(0,current_jump_level,0))
 		times_jumped += 1 
 		
 	
 	
-	if linear_velocity.z > 10 and linear_damp < 0.31:
+	if linear_velocity.z > max_permitted_speed  and linear_damp < damp_from_difficulty:
 		linear_damp += 0.05*delta
 	
-	if linear_velocity.z < 10 and linear_damp > 0.3:
+	if linear_velocity.z < max_permitted_speed and linear_damp > damp_from_difficulty:
 		linear_damp -= 0.4*delta
 	
 	
@@ -133,7 +212,10 @@ func _physics_process(delta):
 	
 
 func _on_body_entered(body):
+	airtime = 0
 	times_jumped = 0
+	if body.is_in_group("normal panel"):
+		combo_for_style = 0
 	if body.is_in_group("out_of_bounds"):
 		Events.emit_signal("out_of_the_bounds")
 	if body.get_parent().is_in_group("out_of_bounds"):
@@ -142,9 +224,20 @@ func _on_body_entered(body):
 		Events.emit_signal("out_of_the_bounds")
 	if body.is_in_group("cube_group"):
 		Events.emit_signal("bounced_cube", body)
+	
+	
+	if body.is_in_group("magnet"):
+		apply_central_impulse(Vector3(0,15,7))
+		combo_for_style += 1
 
+
+
+func do_a_boost():
+	apply_central_impulse(Vector3(0,5,35)) 
+	times_jumped = 0
+	style_counter_additive += 500
+	combo_for_style += 1
 
 func restart_position():
 	$SpringArm3D/Camera3D.clear_current()
-#	await get_tree().create_timer(0.1ц).timeout
 	self.queue_free()

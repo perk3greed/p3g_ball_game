@@ -26,7 +26,8 @@ var level_variations = {
 	23 : "res://levels/level23.tscn",
 	24 : "res://levels/level24.tscn",
 	25 : "res://levels/level25.tscn",
-	26 : "res://levels/Level_26.tscn"
+	26 : "res://levels/Level_26.tscn",
+	27 : "res://levels/level_27.tscn"
 	
 	
 }
