@@ -3,7 +3,7 @@ extends Node
 var collided_cube_ref : StaticBody3D
 
 var speed_for_export := 0
-var speed_score_exported := 0
+#var speed_score_exported := 0
 var speed_counted_score
 var score_rise_to_style
 var positions 
@@ -14,7 +14,7 @@ var speed_for_generations : float = 0
 var difficulty_level : float = 0
 
 var style_exported :float = 0
-var style_counter_exported :float = 0
+var style_counter_exported :String = ""
 var style_counter_additive_exported :float = 0
 
 

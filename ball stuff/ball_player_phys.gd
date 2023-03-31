@@ -23,7 +23,7 @@ var current_jump_level :int
 var max_permitted_speed :int
 var damp_from_difficulty :int
 var style :float 
-var style_counter :float
+var style_counter :String 
 var style_counter_additive :int
 var airtime :int 
 var speed_for_style :int
@@ -31,6 +31,8 @@ var bounds_for_style :int
 var combo_for_style :int
 var part_of_additive : float
 var part_of_additive_flat :float
+var previous_style :float = 0
+var style_delta :float = 0
 
 
 @export var color_norank : Color = Color(0, 0.16, 0.43)
@@ -78,9 +80,9 @@ func _process(delta):
 	Events.part_of_style_exported = part_of_additive
 	
 	
-	if linear_velocity.z > current_jump_level*7:
+	if linear_velocity.z > (max_permitted_speed - max_permitted_speed/10):
 		speed_for_style = int((linear_velocity.z)*10)
-	if linear_velocity.z < current_jump_level*7:
+	if linear_velocity.z < (max_permitted_speed - max_permitted_speed/10) :
 		speed_for_style = 0
 	
 	if position.x < -7 or position.x > 7:
@@ -128,37 +130,41 @@ func _process(delta):
 
 func _physics_process(delta):
 	
+	if linear_velocity.z < 0:
+		linear_velocity.z = 0
+	
+	
 	if times_jumped < 2:
 		jump_ready = true
 	else:
 		jump_ready = false
 	
+	if linear_velocity.z < 43:
+		current_jump_level = 7
+	else :
+		current_jump_level = linear_velocity.z/6
+	
 	current_difficulty_level = Events.difficulty_level
 	if current_difficulty_level == 0:
 		current_accelereation_mode = 10
-		current_jump_level = 5
-		max_permitted_speed = 8
+		max_permitted_speed = 20
 		
 	if current_difficulty_level == 1:
 		current_accelereation_mode = 8
-		current_jump_level = 7
-		max_permitted_speed = 11
+		max_permitted_speed = 30
 	
 	if current_difficulty_level == 2:
 		current_accelereation_mode = 6
-		current_jump_level = 9
-		max_permitted_speed = 100
+		max_permitted_speed = 40
 
 	
 	if current_difficulty_level == 3:
 		current_accelereation_mode = 4
-		current_jump_level = 12
-		max_permitted_speed = 100
+		max_permitted_speed = 55
 	
 	if current_difficulty_level == 4:
 		current_accelereation_mode = 3
-		current_jump_level = 15
-		max_permitted_speed = 100
+		max_permitted_speed = 65
 	
 	
 	
@@ -169,7 +175,7 @@ func _physics_process(delta):
 #	if Input.is_action_pressed("W"):
 	movement_vector = look_vector.normalized()
 	movement_vector.y = 0
-	apply_central_impulse(self.basis.z.normalized()/5)
+	apply_central_impulse(self.basis.z.normalized()/7)
 
 	if Input.is_action_pressed("A"):
 		apply_central_impulse(self.basis.x.normalized()/4)
@@ -178,7 +184,7 @@ func _physics_process(delta):
 		look_vector = $SpringArm3D/Camera3D.global_transform.basis.z
 		movement_vector = look_vector.normalized()
 		movement_vector.y = 0
-		apply_central_impulse(movement_vector)
+		apply_central_impulse(movement_vector/5)
 	if Input.is_action_pressed("D"):
 		apply_central_impulse(-self.basis.x.normalized()/4)
 
@@ -186,10 +192,9 @@ func _physics_process(delta):
 		apply_central_impulse(Vector3(0,current_jump_level,0))
 		times_jumped += 1 
 		
-	
-	
+		
 	if linear_velocity.z > max_permitted_speed  and linear_damp < damp_from_difficulty:
-		linear_damp += 0.05*delta
+		linear_damp += 0.2*delta
 	
 	if linear_velocity.z < max_permitted_speed and linear_damp > damp_from_difficulty:
 		linear_damp -= 0.4*delta
@@ -206,17 +211,47 @@ func do_style_counter(delta):
 	style_counter_additive += int(speed_for_style)
 	style_counter_additive += int(bounds_for_style*2)
 
-	style_counter_additive -= int(80)
-	part_of_additive_flat = style_counter_additive/10
-	part_of_additive = style_counter_additive
+	style_counter_additive -= int(10)
+	part_of_additive_flat = style_counter_additive/12
+	part_of_additive = style_counter_additive/2
 	style_counter_additive -= int(part_of_additive*delta)
-	style_counter_additive -=int(part_of_additive_flat)
+	style_counter_additive -= int(part_of_additive_flat)
 	
 	
 	if style_counter_additive < 1:
 		style_counter_additive = 0
 	
-	style += int(style_counter_additive*delta/100)
+	style += int(style_counter_additive*delta/50)
+	
+	
+	
+	if style_counter_additive <= 120:
+		style_counter = "" 
+		damp_from_difficulty = 1
+	
+	if style_counter_additive > 500:
+		style_counter = "C" 
+		damp_from_difficulty = 0.9
+		
+	if style_counter_additive > 4000:
+		style_counter = "B"
+		damp_from_difficulty = 0.8
+	
+	if style_counter_additive > 5000:
+		style_counter = "A"
+		damp_from_difficulty = 0.70
+	
+	if style_counter_additive > 10000:
+		style_counter = "S"
+		damp_from_difficulty = 0.60
+	
+	if style_counter_additive > 17000:
+		style_counter = "SS"
+		damp_from_difficulty = 0.5
+	
+	if style_counter_additive > 40000:
+		style_counter = "SSS"
+		damp_from_difficulty = 0.4
 
 
 func _on_body_entered(body):
@@ -235,13 +270,13 @@ func _on_body_entered(body):
 	
 	
 	if body.is_in_group("magnet"):
-		apply_central_impulse(Vector3(0,10,5))
+		apply_central_impulse(Vector3(0,9,4))
 		combo_for_style += 1
 		style_counter_additive += combo_for_style*150000
 
 
 func do_a_boost():
-	apply_central_impulse(Vector3(0,5,20)) 
+	apply_central_impulse(Vector3(0,6,17)) 
 	times_jumped = 0
 	combo_for_style += 1
 	style_counter_additive += combo_for_style*150000

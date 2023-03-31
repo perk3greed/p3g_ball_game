@@ -13,16 +13,16 @@ func _ready():
 	Events.connect("out_of_the_bounds", do_menu_visible)
 
 func _process(delta):
-	if Events.speed_for_export != null:
-		var speed_convert = Events.speed_for_export
-		if speed_convert >10:
-			speed_score += int(speed_convert/10)
-		if speed_convert <10:
-			Events.speed_counted_score = speed_score
-#			Events.emit_signal("move_speed_to_count",speed_score )
-			self.emit_signal("move_speed_to_count", speed_score)
-			speed_score = 0
-		Events.speed_score_exported = speed_score/10
+#	if Events.speed_for_export != null:
+#		var speed_convert = Events.speed_for_export
+#		if speed_convert >10:
+#			speed_score += int(speed_convert/10)
+#		if speed_convert <10:
+#			Events.speed_counted_score = speed_score
+###			Events.emit_signal("move_speed_to_count",speed_score )
+#			self.emit_signal("move_speed_to_count", speed_score)
+#			speed_score = 0
+#		Events.speed_score_exported = speed_score/10
 	if Input.is_action_just_pressed("R"):
 		self.do_lvl_change(Levels.current_level_that_is_set)
 		Events.current_most_distant_cube = 0

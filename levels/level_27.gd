@@ -23,10 +23,6 @@ var current_score :int
 var most_distant_platform := 0
 var biggest_value := 0
 
-func _ready():
-	pass
-	
-
 
 
 func _process(delta):
@@ -34,26 +30,26 @@ func _process(delta):
 	
 	
 	
-	if biggest_value - 400 < ball_position:
+	if biggest_value - 700 < ball_position:
 		
 		current_score = int((Events.style_exported)/10)
-		if current_score < 10:
+		if current_score < 100:
 			current_difficulty_mode = 0
 			current_difficulty_max = 8
 			current_difficulty_min = 8
-		if current_score >= 10 and current_score < 3000:
+		if current_score >= 10 and current_score < 600:
 			current_difficulty_mode = 1
 			current_difficulty_max = 8
 			current_difficulty_min = 5
-		if current_score >= 3000 and current_score < 10000:
+		if current_score >= 6000 and current_score < 15000:
 			current_difficulty_mode = 2
 			current_difficulty_max = 7
 			current_difficulty_min = 2
-		if current_score >= 10000 and current_score < 20000:
+		if current_score >= 15000 and current_score < 30000:
 			current_difficulty_mode = 3
 			current_difficulty_max = 4
 			current_difficulty_min = 2
-		if current_score >= 20000:
+		if current_score >= 30000:
 			current_difficulty_mode = 4
 			current_difficulty_max = 4
 			current_difficulty_min = 1 
@@ -154,10 +150,11 @@ func spawn_platform_middle():
 	
 	
 	var spawn_sonic = rng.randi_range(1,40)
-	if spawn_sonic < current_difficulty_mode*4 :
+	var spawn_sonic_height = rng.randi_range(1,current_difficulty_mode*5)
+	if spawn_sonic < current_difficulty_mode*3 :
 		add_child(sonic_spawn)
 		sonic_spawn.position.z = biggest_value
-		sonic_spawn.position.y = distant_platform_height+6
+		sonic_spawn.position.y = distant_platform_height+spawn_sonic_height
 		
 		
 	
