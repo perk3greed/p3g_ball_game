@@ -23,14 +23,14 @@ var current_jump_level :int
 var max_permitted_speed :int
 var damp_from_difficulty :int
 var style :float 
-var style_counter :int
+var style_counter :float
 var style_counter_additive :int
 var airtime :int 
 var speed_for_style :int
 var bounds_for_style :int
 var combo_for_style :int
-var part_of_style : float
-
+var part_of_additive : float
+var part_of_additive_flat :float
 
 
 @export var color_norank : Color = Color(0, 0.16, 0.43)
@@ -64,42 +64,29 @@ func _ready():
 		color_to_vector_rgb(color_A) ]
 
 func _process(delta):
-			#style counter part
-	airtime += int(1*delta)
-	style_counter_additive += int((speed_for_style*2 + airtime*10 + bounds_for_style + combo_for_style)/10)
-	style_counter += int((style_counter_additive - 20)/10)
-	style_counter -= int(part_of_style)
-	part_of_style = style_counter/2
-	if style_counter < 1:
-		style_counter = 0
 	
-	style += style_counter*delta
+	do_style_counter(delta)
+	
+	
 	Events.style_exported = style
 	Events.style_counter_exported = style_counter
 	Events.style_counter_additive_exported = style_counter_additive
-	
-	
-	
-	
 	Events.airtime_exported = airtime
 	Events.speed_for_style_exported = speed_for_style
 	Events.bounds_for_style_exported = bounds_for_style
 	Events.combo_for_style_exported = combo_for_style
-	Events.part_of_style_exported = part_of_style
+	Events.part_of_style_exported = part_of_additive
 	
 	
-	
-	
-	
-	if linear_velocity.z > current_jump_level*10:
-		speed_for_style = int((linear_velocity.z)/10)
-	if linear_velocity.z < current_jump_level*10:
+	if linear_velocity.z > current_jump_level*7:
+		speed_for_style = int((linear_velocity.z)*10)
+	if linear_velocity.z < current_jump_level*7:
 		speed_for_style = 0
 	
-	if position.x < -5 or position.x > 5:
-		bounds_for_style += int(delta*2)
+	if position.x < -7 or position.x > 7:
+		bounds_for_style += int(delta*1000)
 		
-	if position.x < 5 and position.x > -5: 
+	if position.x < 7 and position.x > -7: 
 		bounds_for_style = 0
 	
 	
@@ -148,28 +135,28 @@ func _physics_process(delta):
 	
 	current_difficulty_level = Events.difficulty_level
 	if current_difficulty_level == 0:
-		current_accelereation_mode = 8
+		current_accelereation_mode = 10
 		current_jump_level = 5
 		max_permitted_speed = 8
 		
 	if current_difficulty_level == 1:
-		current_accelereation_mode = 6
+		current_accelereation_mode = 8
 		current_jump_level = 7
 		max_permitted_speed = 11
 	
 	if current_difficulty_level == 2:
-		current_accelereation_mode = 4
+		current_accelereation_mode = 6
 		current_jump_level = 9
 		max_permitted_speed = 100
 
 	
 	if current_difficulty_level == 3:
-		current_accelereation_mode = 3
+		current_accelereation_mode = 4
 		current_jump_level = 12
 		max_permitted_speed = 100
 	
 	if current_difficulty_level == 4:
-		current_accelereation_mode = 2
+		current_accelereation_mode = 3
 		current_jump_level = 15
 		max_permitted_speed = 100
 	
@@ -191,7 +178,7 @@ func _physics_process(delta):
 		look_vector = $SpringArm3D/Camera3D.global_transform.basis.z
 		movement_vector = look_vector.normalized()
 		movement_vector.y = 0
-		apply_central_impulse(movement_vector/6)
+		apply_central_impulse(movement_vector)
 	if Input.is_action_pressed("D"):
 		apply_central_impulse(-self.basis.x.normalized()/4)
 
@@ -207,9 +194,30 @@ func _physics_process(delta):
 	if linear_velocity.z < max_permitted_speed and linear_damp > damp_from_difficulty:
 		linear_damp -= 0.4*delta
 	
+
+
+func do_style_counter(delta):
+			#style counter part
+	airtime += int(100*delta)
+
+	if airtime > 200:
+		style_counter_additive += int(airtime*5)
+
+	style_counter_additive += int(speed_for_style)
+	style_counter_additive += int(bounds_for_style*2)
+
+	style_counter_additive -= int(80)
+	part_of_additive_flat = style_counter_additive/10
+	part_of_additive = style_counter_additive
+	style_counter_additive -= int(part_of_additive*delta)
+	style_counter_additive -=int(part_of_additive_flat)
 	
 	
+	if style_counter_additive < 1:
+		style_counter_additive = 0
 	
+	style += int(style_counter_additive*delta/100)
+
 
 func _on_body_entered(body):
 	airtime = 0
@@ -227,16 +235,16 @@ func _on_body_entered(body):
 	
 	
 	if body.is_in_group("magnet"):
-		apply_central_impulse(Vector3(0,15,7))
+		apply_central_impulse(Vector3(0,10,5))
 		combo_for_style += 1
-
+		style_counter_additive += combo_for_style*150000
 
 
 func do_a_boost():
-	apply_central_impulse(Vector3(0,5,35)) 
+	apply_central_impulse(Vector3(0,5,20)) 
 	times_jumped = 0
-	style_counter_additive += 500
 	combo_for_style += 1
+	style_counter_additive += combo_for_style*150000
 
 func restart_position():
 	$SpringArm3D/Camera3D.clear_current()
