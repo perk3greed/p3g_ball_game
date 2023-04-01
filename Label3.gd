@@ -2,7 +2,12 @@ extends Label
 
 
 func _process(delta):
-	self.text = str("airtime = " , str(Events.airtime_exported)) 
+	if Events.airtime_exported > 199:
+		self.visible = true
+	if Events.airtime_exported < 199:
+		self.visible = false
+	
+	self.text = str("airtime! " , str(Events.airtime_exported/100)) 
 	
 	
 	

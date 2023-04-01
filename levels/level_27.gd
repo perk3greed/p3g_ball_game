@@ -26,33 +26,40 @@ var biggest_value := 0
 
 
 func _process(delta):
+	
+	Events.biggest_value_exported = biggest_value
 	ball_position = Events.ball_distance_z
+	var spawn_distance_fog : int = 200
 	
 	
-	
-	if biggest_value - 700 < ball_position:
+	if biggest_value - spawn_distance_fog < ball_position * 1.064 :
 		
-		current_score = int((Events.style_exported)/10)
-		if current_score < 100:
+		current_score = int((Events.style_exported))
+		if current_score < 1000:
 			current_difficulty_mode = 0
 			current_difficulty_max = 8
 			current_difficulty_min = 8
-		if current_score >= 10 and current_score < 600:
+			spawn_distance_fog = 300
+		if current_score >= 1000 and current_score < 10000:
 			current_difficulty_mode = 1
 			current_difficulty_max = 8
 			current_difficulty_min = 5
-		if current_score >= 6000 and current_score < 15000:
+			spawn_distance_fog = 500
+		if current_score >= 10000 and current_score < 30000:
 			current_difficulty_mode = 2
 			current_difficulty_max = 7
 			current_difficulty_min = 2
-		if current_score >= 15000 and current_score < 30000:
+			spawn_distance_fog = 600
+		if current_score >= 30000 and current_score < 60000:
 			current_difficulty_mode = 3
 			current_difficulty_max = 4
 			current_difficulty_min = 2
-		if current_score >= 30000:
+			spawn_distance_fog = 1000
+		if current_score >= 60000:
 			current_difficulty_mode = 4
 			current_difficulty_max = 4
 			current_difficulty_min = 1 
+			spawn_distance_fog = 1200
 		
 		var my_random_number = rng.randi_range(current_difficulty_min, current_difficulty_max)
 		if my_random_number == 1 and previous_platform == 1:
@@ -150,12 +157,15 @@ func spawn_platform_middle():
 	
 	
 	var spawn_sonic = rng.randi_range(1,40)
-	var spawn_sonic_height = rng.randi_range(1,current_difficulty_mode*5)
+	var spawn_sonic_height = rng.randi_range(5,current_difficulty_mode*7)
+	if current_difficulty_mode < 2:
+		spawn_sonic_height = rng.randi_range(2,12)
+	var spawn_sonic_right_left = rng.randi_range(-5,5)
 	if spawn_sonic < current_difficulty_mode*3 :
 		add_child(sonic_spawn)
 		sonic_spawn.position.z = biggest_value
 		sonic_spawn.position.y = distant_platform_height+spawn_sonic_height
-		
+		sonic_spawn.position.x = spawn_sonic_right_left
 		
 	
 
