@@ -10,6 +10,7 @@ var jump_ready = false
 signal out_of_the_bounds
 var camera_normal : Vector3 = Vector3.ZERO
 var Mat : ShaderMaterial
+var PartMat : ShaderMaterial
 var current_color : Vector3 = Vector3(0, 0.2, 0.5)
 var prev_color : Vector3 = Vector3(0, 0.2, 0.5)
 var rank : int = 0
@@ -44,6 +45,10 @@ var sky_damp :bool = false
 @export var speed_C : float = 9
 @export var speed_B : float = 18
 
+@export var speed_nowind : float = 10
+@export var speed_wind : float = 40
+@export var wind_opacity : float = 0.4
+
 var color_dict : Array
 
 func color_to_vector_rgb(color_input: Color) -> Vector3:
@@ -57,6 +62,7 @@ func _ready():
 	Events.connect("ball_is_out_of_bounds", restart_position)
 	
 	Mat = get_node("CSGSphere3D").get_material()
+	PartMat = $CPUParticles3D.mesh.get_material()
 	
 	self.position = Vector3(0, 10, 0)
 	$SpringArm3D/Camera3D.make_current()
@@ -126,6 +132,14 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
+	$CPUParticles3D.rotation = Vector3(PI+linear_velocity.normalized().angle_to(Vector3(0, 1, 0)), 0, 0)
+	if linear_velocity.length() <= speed_nowind:
+		PartMat.set_shader_parameter("opacity", 0)
+	elif linear_velocity.length() <= speed_wind:
+		PartMat.set_shader_parameter("opacity", (linear_velocity.length()-speed_nowind)/(speed_wind-speed_nowind)*wind_opacity)
+	else:
+		PartMat.set_shader_parameter("opacity", wind_opacity)
 	
 	if sky_damp:
 		apply_central_force(Vector3(0,0,-5))
