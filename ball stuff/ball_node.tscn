@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://e2c8mcptnt5w"]
+[gd_scene load_steps=8 format=3 uid="uid://e2c8mcptnt5w"]
 
 [ext_resource type="Script" path="res://ball stuff/ball_player_phys.gd" id="2_xf8vi"]
 [ext_resource type="Shader" path="res://ball stuff/ball_node.gdshader" id="3_jll72"]
@@ -14,6 +14,18 @@ radius = 0.1
 render_priority = 0
 shader = ExtResource("3_jll72")
 shader_parameter/colour = null
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosh3"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_a2ybe"]
+material = SubResource("StandardMaterial3D_wosh3")
+shape = 0
+size = 0.02
+sections = 2
+section_length = 1.0
+section_segments = 1
 
 [node name="RigidBody3D" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -51,5 +63,18 @@ margin = 0.2
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
 fov = 90.0
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, -0.651, 1.316)
+amount = 50
+local_coords = true
+mesh = SubResource("RibbonTrailMesh_a2ybe")
+emission_shape = 3
+emission_box_extents = Vector3(3.783, 5.11, 2.071)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.05
+initial_velocity_max = 29.57
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
