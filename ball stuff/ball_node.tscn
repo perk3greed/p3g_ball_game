@@ -5,7 +5,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5fpfy"]
 friction = 0.0
-bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_28bld"]
 radius = 0.1

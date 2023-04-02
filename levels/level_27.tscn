@@ -1,7 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://jdee8xphfmfi"]
+[gd_scene load_steps=4 format=3 uid="uid://jdee8xphfmfi"]
 
 [ext_resource type="Script" path="res://levels/level_27.gd" id="1_pmcth"]
+[ext_resource type="Script" path="res://levels/sky_wind_damp.gd" id="2_x0nf4"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fsoep"]
+margin = 0.217
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, -15)
 script = ExtResource("1_pmcth")
+
+[node name="skywinddamp" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 15, 0)
+linear_damp_space_override = 1
+linear_damp = 0.0
+wind_force_magnitude = 10.0
+script = ExtResource("2_x0nf4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="skywinddamp"]
+shape = SubResource("WorldBoundaryShape3D_fsoep")
+
+[connection signal="body_entered" from="skywinddamp" to="skywinddamp" method="_on_body_entered"]
+[connection signal="body_exited" from="skywinddamp" to="skywinddamp" method="_on_body_exited"]

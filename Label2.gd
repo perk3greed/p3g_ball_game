@@ -2,7 +2,7 @@ extends Label
 
 
 func _process(delta):
-	self.text = str("style_counter_additive = " , str(Events.style_counter_additive_exported)) 
+	self.text = str("panel = " , str(Events.biggest_value_exported)) 
 	
 	
 	

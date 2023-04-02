@@ -38,11 +38,13 @@ theme_override_font_sizes/font_size = 40
 script = ExtResource("2_ed68b")
 
 [node name="Label2" type="Label" parent="Control"]
-visible = false
 layout_mode = 0
-offset_top = 60.0
-offset_right = 300.0
-offset_bottom = 120.0
+offset_left = 1300.0
+offset_top = 100.0
+offset_right = 1600.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 script = ExtResource("3_tmlw7")
 
@@ -52,6 +54,8 @@ layout_mode = 0
 offset_top = 120.0
 offset_right = 300.0
 offset_bottom = 180.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.960784, 0, 0.32549, 1)
 theme_override_font_sizes/font_size = 40
 script = ExtResource("4_ffdf8")
 
@@ -61,6 +65,8 @@ layout_mode = 0
 offset_top = 180.0
 offset_right = 300.0
 offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.298039, 0.466667, 0.0941176, 1)
 theme_override_font_sizes/font_size = 40
 script = ExtResource("5_n11ut")
 
@@ -70,6 +76,8 @@ layout_mode = 0
 offset_top = 240.0
 offset_right = 300.0
 offset_bottom = 300.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.364706, 0.313726, 0.878431, 1)
 theme_override_font_sizes/font_size = 40
 script = ExtResource("6_jykbu")
 
@@ -79,6 +87,8 @@ layout_mode = 0
 offset_top = 300.0
 offset_right = 300.0
 offset_bottom = 360.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.458824, 0.52549, 1)
 theme_override_font_sizes/font_size = 40
 script = ExtResource("7_ei0c0")
 
@@ -103,7 +113,6 @@ theme_override_font_sizes/font_size = 80
 script = ExtResource("9_gtvbj")
 
 [node name="Label9" type="Label" parent="Control"]
-visible = false
 layout_mode = 0
 offset_top = 480.0
 offset_right = 300.0
@@ -128,7 +137,6 @@ script = ExtResource("3_35cmh")
 layout_mode = 1
 
 [node name="positions" type="Label" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

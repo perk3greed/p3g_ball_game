@@ -17,8 +17,8 @@ var style_exported :float = 0
 var style_counter_exported :String = ""
 var style_counter_additive_exported :float = 0
 
-
-
+var speed_limit_exported : float = 0
+var biggest_value_exported :float = 0
 
 var airtime_exported :int = 0 
 var speed_for_style_exported :int = 0
@@ -35,8 +35,8 @@ var part_of_style_exported : float = 0
 
 
 
-
-
+signal sky_exited
+signal sky_entered
 
 
 signal bounced_cube(collided_cube_ref)

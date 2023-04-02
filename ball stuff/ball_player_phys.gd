@@ -27,13 +27,13 @@ var style_counter :String
 var style_counter_additive :int
 var airtime :int 
 var speed_for_style :int
-var bounds_for_style :int
+var bounds_for_style :int 
 var combo_for_style :int
 var part_of_additive : float
 var part_of_additive_flat :float
 var previous_style :float = 0
 var style_delta :float = 0
-
+var sky_damp :bool = false
 
 @export var color_norank : Color = Color(0, 0.16, 0.43)
 @export var color_C : Color = Color(0, 0.84, 0.69)
@@ -50,8 +50,12 @@ func color_to_vector_rgb(color_input: Color) -> Vector3:
 	return Vector3(color_input.r, color_input.g, color_input.b)
 
 func _ready():
+
+	Events.connect("sky_entered", do_sky_damp)
+	Events.connect("sky_exited", finish_sky_damp)
 	Events.connect("sonic_entered", do_a_boost)
 	Events.connect("ball_is_out_of_bounds", restart_position)
+	
 	Mat = get_node("CSGSphere3D").get_material()
 	
 	self.position = Vector3(0, 10, 0)
@@ -79,17 +83,10 @@ func _process(delta):
 	Events.combo_for_style_exported = combo_for_style
 	Events.part_of_style_exported = part_of_additive
 	
-	
-	if linear_velocity.z > (max_permitted_speed - max_permitted_speed/10):
-		speed_for_style = int((linear_velocity.z)*10)
-	if linear_velocity.z < (max_permitted_speed - max_permitted_speed/10) :
+	if linear_velocity.z > (max_permitted_speed - max_permitted_speed/60.0):
+		speed_for_style = int((linear_velocity.z)*15)
+	if linear_velocity.z < (max_permitted_speed - max_permitted_speed/60.0) :
 		speed_for_style = 0
-	
-	if position.x < -7 or position.x > 7:
-		bounds_for_style += int(delta*1000)
-		
-	if position.x < 7 and position.x > -7: 
-		bounds_for_style = 0
 	
 	
 	
@@ -130,8 +127,13 @@ func _process(delta):
 
 func _physics_process(delta):
 	
+	if sky_damp:
+		apply_central_force(Vector3(0,0,-5))
+	
+	
 	if linear_velocity.z < 0:
 		linear_velocity.z = 0
+	
 	
 	
 	if times_jumped < 2:
@@ -140,31 +142,33 @@ func _physics_process(delta):
 		jump_ready = false
 	
 	if linear_velocity.z < 43:
-		current_jump_level = 7
+		current_jump_level = 8
 	else :
-		current_jump_level = linear_velocity.z/6
+		current_jump_level = linear_velocity.z/5
+		
+	max_permitted_speed = style*2
 	
 	current_difficulty_level = Events.difficulty_level
 	if current_difficulty_level == 0:
 		current_accelereation_mode = 10
-		max_permitted_speed = 20
+		
 		
 	if current_difficulty_level == 1:
 		current_accelereation_mode = 8
-		max_permitted_speed = 30
+#		max_permitted_speed = 30
 	
 	if current_difficulty_level == 2:
 		current_accelereation_mode = 6
-		max_permitted_speed = 40
+#		max_permitted_speed = 40
 
 	
 	if current_difficulty_level == 3:
 		current_accelereation_mode = 4
-		max_permitted_speed = 55
+#		max_permitted_speed = 55
 	
 	if current_difficulty_level == 4:
 		current_accelereation_mode = 3
-		max_permitted_speed = 65
+#		max_permitted_speed = 65
 	
 	
 	
@@ -175,7 +179,7 @@ func _physics_process(delta):
 #	if Input.is_action_pressed("W"):
 	movement_vector = look_vector.normalized()
 	movement_vector.y = 0
-	apply_central_impulse(self.basis.z.normalized()/7)
+	apply_central_impulse(self.basis.z.normalized()/10)
 
 	if Input.is_action_pressed("A"):
 		apply_central_impulse(self.basis.x.normalized()/4)
@@ -252,7 +256,16 @@ func do_style_counter(delta):
 	if style_counter_additive > 40000:
 		style_counter = "SSS"
 		damp_from_difficulty = 0.4
-
+	
+	
+	if position.x < -7 or position.x > 7:
+		bounds_for_style += int(delta*1000)
+		
+	if position.x < 7 and position.x > -7: 
+		bounds_for_style = 0
+	
+	
+	
 
 func _on_body_entered(body):
 	airtime = 0
@@ -284,3 +297,13 @@ func do_a_boost():
 func restart_position():
 	$SpringArm3D/Camera3D.clear_current()
 	self.queue_free()
+
+func do_sky_damp():
+	print("sky entered")
+	sky_damp = true
+	
+	
+	
+func finish_sky_damp():
+	print("sky exited")
+	sky_damp = false
