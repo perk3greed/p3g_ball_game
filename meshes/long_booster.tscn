@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cywamgioqg10u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyc6c"]
+resource_local_to_scene = true
+albedo_color = Color(0.188235, 0, 0.843137, 1)
+metallic = 1.0
+roughness = 0.32
+backlight = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uff7t"]
+size = Vector3(6, 0.6, 45)
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["boost"]]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." groups=["boost"]]
+size = Vector3(6, 0.6, 45)
+material = SubResource("StandardMaterial3D_xyc6c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["boost"]]
+shape = SubResource("BoxShape3D_uff7t")

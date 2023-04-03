@@ -8,13 +8,13 @@ roughness = 0.32
 backlight = Color(0.431373, 0.431373, 0.431373, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2m50"]
-size = Vector3(0.6, 6, 15)
+size = Vector3(0.6, 6, 45)
 
 [node name="StaticBody3D" type="StaticBody3D" groups=["magnet"]]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="cube_visual" type="CSGBox3D" parent="." groups=["magnet"]]
-transform = Transform3D(-2.62268e-08, -6, 0, 0.6, -2.62268e-07, 0, 0, 0, 15, 0, 0, 0)
+size = Vector3(6, 0.6, 45)
 material = SubResource("StandardMaterial3D_pbikd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["magnet"]]

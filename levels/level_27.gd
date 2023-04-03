@@ -5,6 +5,9 @@ var ball_position := 0
 var platform := load("res://levels/3d models/long_board.tscn")
 var magnet := load("res://meshes/long_magnet.tscn")
 var sonic_circle := load("res://meshes/sonic_torus.tscn")
+var booster := load("res://meshes/long_booster.tscn")
+var barrier := load("res://meshes/barrier.tscn")
+
 
 var distant_platform_left := 0
 var distant_platform_right := 0
@@ -109,36 +112,61 @@ func spawn_some_platforms(number_of_platforms):
 
 
 func spawn_platform_left():
+	var barrier_spawn = barrier.instantiate() 
 	var platform_instance = platform.instantiate() 
 	var spawn_magnet = rng.randi_range(1,20)
 	if spawn_magnet < 3:
-		platform_instance = magnet.instantiate() 
+		platform_instance = magnet.instantiate()
+	if spawn_magnet > 3 and spawn_magnet < 6:
+		platform_instance = booster.instantiate() 
 	add_child(platform_instance)
+	
 	platform_instance.rotation.z = 0.4
 	platform_instance.position.x = 5.7
-	platform_instance.position.y = 1
-	platform_instance.position.z += biggest_value + 15
+	platform_instance.position.y = 1.1
+	platform_instance.position.z += biggest_value + 45
 	distant_platform_left = platform_instance.position.z
+	
+	
+	var spawn_barrier = rng.randi_range(1,40)
+	if spawn_barrier < 4 :
+		add_child(barrier_spawn)
+		barrier_spawn.position.z = biggest_value
+		barrier_spawn.position.y = 5
+		barrier_spawn.position.x = 5.7
+		barrier_spawn.rotation.z = 0.4
+
+	
 	
 	
 	
 
 func spawn_platform_right():
+	var barrier_spawn = barrier.instantiate() 
 	var platform_instance = platform.instantiate() 
 	var spawn_magnet = rng.randi_range(1,20)
 	if spawn_magnet < 3:
 		platform_instance = magnet.instantiate() 
+	if spawn_magnet > 3 and spawn_magnet < 6:
+		platform_instance = booster.instantiate() 
 	add_child(platform_instance)
 	platform_instance.rotation.z = -0.4
 	platform_instance.position.x = -5.7
-	platform_instance.position.y = 1
-	platform_instance.position.z += biggest_value + 15
+	platform_instance.position.y = 1.1
+	platform_instance.position.z += biggest_value + 45
 	distant_platform_right = platform_instance.position.z
 	
-	
+	var spawn_barrier = rng.randi_range(1,40)
+	if spawn_barrier < 4 :
+		add_child(barrier_spawn)
+		barrier_spawn.position.z = biggest_value
+		barrier_spawn.position.y = 5
+		barrier_spawn.position.x = -5.7
+		barrier_spawn.rotation.z = -0.4
 
 
 func spawn_platform_middle():
+	var barrier_spawn = barrier.instantiate() 
 	var sonic_spawn = sonic_circle.instantiate()
 	var platform_instance = platform.instantiate() 
 	var spawn_magnet = rng.randi_range(1,20)
@@ -147,30 +175,44 @@ func spawn_platform_middle():
 	
 	if spawn_magnet < 3:
 		platform_instance = magnet.instantiate() 
+	if spawn_magnet > 3 and spawn_magnet < 6:
+		platform_instance = booster.instantiate() 
 	add_child(platform_instance)
 	platform_instance.rotation.z = 0
 	platform_instance.position.x = 0 
 	platform_instance.position.y = 0
-	platform_instance.position.z += biggest_value + 15
+	platform_instance.position.z += biggest_value + 45
 	distant_platform_middle = platform_instance.position.z
 	distant_platform_height = platform_instance.position.y
 	
 	
 	var spawn_sonic = rng.randi_range(1,40)
-	var spawn_sonic_height = rng.randi_range(5,current_difficulty_mode*7)
+	var spawn_barrier = rng.randi_range(1,40)
+	var spawn_sonic_height = rng.randi_range(8,current_difficulty_mode*7)
 	if current_difficulty_mode < 2:
-		spawn_sonic_height = rng.randi_range(2,12)
+		spawn_sonic_height = rng.randi_range(8,17)
 	var spawn_sonic_right_left = rng.randi_range(-5,5)
 	if spawn_sonic < current_difficulty_mode*3 :
 		add_child(sonic_spawn)
 		sonic_spawn.position.z = biggest_value
 		sonic_spawn.position.y = distant_platform_height+spawn_sonic_height
 		sonic_spawn.position.x = spawn_sonic_right_left
-		
+	else:
+		if spawn_barrier < 4 :
+			add_child(barrier_spawn)
+			barrier_spawn.position.z = biggest_value
+			barrier_spawn.position.y = distant_platform_height + 5
+			barrier_spawn.position.x = 0
+	
+	
+	
+	
+	
+	
 	
 
 func spawn_noting():
-	distant_nothing = biggest_value+15
+	distant_nothing = biggest_value
 
 func delete_unusable_platforms():
 	var number_of_children = self.get_child_count()

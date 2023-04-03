@@ -253,23 +253,23 @@ func do_style_counter(delta):
 		
 	if style_counter_additive > 4000:
 		style_counter = "B"
-		damp_from_difficulty = 0.8
+		damp_from_difficulty = 0.9
 	
 	if style_counter_additive > 5000:
 		style_counter = "A"
-		damp_from_difficulty = 0.70
+		damp_from_difficulty = 0.85
 	
 	if style_counter_additive > 10000:
 		style_counter = "S"
-		damp_from_difficulty = 0.60
+		damp_from_difficulty = 0.8
 	
 	if style_counter_additive > 17000:
 		style_counter = "SS"
-		damp_from_difficulty = 0.5
+		damp_from_difficulty = 0.75
 	
 	if style_counter_additive > 40000:
 		style_counter = "SSS"
-		damp_from_difficulty = 0.4
+		damp_from_difficulty = 0.7
 	
 	
 	if position.x < -7 or position.x > 7:
@@ -299,8 +299,17 @@ func _on_body_entered(body):
 	if body.is_in_group("magnet"):
 		apply_central_impulse(Vector3(0,9,4))
 		combo_for_style += 1
-		style_counter_additive += combo_for_style*150000
-
+		style_counter_additive += combo_for_style*100000
+	
+	if body.is_in_group("boost"):
+		apply_central_impulse(Vector3(0,0,7))
+		combo_for_style += 1
+		style_counter_additive += combo_for_style*100000
+	
+	if body.is_in_group("barrier"):
+		apply_central_impulse(Vector3(0,0,-10))
+	
+	
 
 func do_a_boost():
 	apply_central_impulse(Vector3(0,6,17)) 
