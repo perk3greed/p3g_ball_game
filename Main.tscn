@@ -169,4 +169,9 @@ script = ExtResource("4_34liu")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="untouchable3d"]
 environment = ExtResource("8_eadvx")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="untouchable3d"]
+transform = Transform3D(1, 0, 0, 0, 0.0871558, 0.996195, 0, -0.996195, 0.0871558, 0, 0, 0)
+light_bake_mode = 1
+sky_mode = 1
+
 [connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]
