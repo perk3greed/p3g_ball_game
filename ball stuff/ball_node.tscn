@@ -14,7 +14,7 @@ render_priority = 0
 shader = ExtResource("3_jll72")
 shader_parameter/colour = null
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" groups=["player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

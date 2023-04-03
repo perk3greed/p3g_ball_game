@@ -7,7 +7,7 @@
 margin = 0.217
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, -30)
 script = ExtResource("1_pmcth")
 
 [node name="skywinddamp" type="Area3D" parent="."]
