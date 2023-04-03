@@ -29,9 +29,9 @@ window/stretch/mode="viewport"
 
 [editor]
 
+movie_writer/mix_rate=12000
 movie_writer/movie_file="C:/Users/418/godot4/videos/lulz.avi"
 movie_writer/disable_vsync=true
-movie_writer/fps=30
 
 [input]
 
