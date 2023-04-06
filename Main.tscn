@@ -38,6 +38,7 @@ theme_override_font_sizes/font_size = 40
 script = ExtResource("2_ed68b")
 
 [node name="Label2" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 1300.0
 offset_top = 100.0
@@ -113,6 +114,7 @@ theme_override_font_sizes/font_size = 80
 script = ExtResource("9_gtvbj")
 
 [node name="Label9" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_top = 480.0
 offset_right = 300.0
