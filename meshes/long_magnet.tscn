@@ -10,7 +10,7 @@ backlight = Color(0.431373, 0.431373, 0.431373, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2m50"]
 size = Vector3(0.6, 6, 45)
 
-[node name="StaticBody3D" type="StaticBody3D" groups=["magnet"]]
+[node name="jump_pad" type="StaticBody3D" groups=["magnet"]]
 
 [node name="cube_visual" type="CSGBox3D" parent="." groups=["magnet"]]
 size = Vector3(6, 0.6, 45)

@@ -83,9 +83,9 @@ func _process(delta):
 	Events.combo_for_style_exported = combo_for_style
 	Events.part_of_style_exported = part_of_additive
 	
-	if linear_velocity.z > (max_permitted_speed - max_permitted_speed/60.0):
-		speed_for_style = int((linear_velocity.z)*15)
-	if linear_velocity.z < (max_permitted_speed - max_permitted_speed/60.0) :
+	if linear_velocity.z > (max_permitted_speed - max_permitted_speed/20.0):
+		speed_for_style = int((linear_velocity.z)*20)
+	if linear_velocity.z < (max_permitted_speed - max_permitted_speed/20.0) :
 		speed_for_style = 0
 	
 	

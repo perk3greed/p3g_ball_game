@@ -10,7 +10,7 @@ backlight = Color(0.431373, 0.431373, 0.431373, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uff7t"]
 size = Vector3(6, 0.6, 45)
 
-[node name="StaticBody3D" type="StaticBody3D" groups=["boost"]]
+[node name="buster" type="StaticBody3D" groups=["boost"]]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." groups=["boost"]]
 size = Vector3(6, 0.6, 45)
