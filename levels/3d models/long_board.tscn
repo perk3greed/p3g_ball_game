@@ -5,7 +5,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2m50"]
 size = Vector3(0.6, 6, 45)
 
-[node name="long_board" type="StaticBody3D" groups=["normal panel"]]
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["normal panel"]]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="cube_visual" type="CSGBox3D" parent="." groups=["normal panel"]]
 size = Vector3(6, 0.6, 45)

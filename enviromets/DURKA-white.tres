@@ -2,11 +2,11 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dtjwy"]
 sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(0.772549, 0.772549, 0.772549, 1)
+sky_horizon_color = Color(0.94902, 0.811765, 1, 1)
+sky_curve = 0.0132582
 ground_bottom_color = Color(1, 1, 1, 1)
-ground_horizon_color = Color(0.827451, 0.827451, 0.827451, 1)
-ground_curve = 0.234254
-sun_angle_max = 0.0
+ground_horizon_color = Color(0.694118, 0.843137, 1, 1)
+ground_curve = 0.0141422
 
 [sub_resource type="Sky" id="Sky_0m05g"]
 sky_material = SubResource("ProceduralSkyMaterial_dtjwy")
@@ -15,6 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_dtjwy")
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_0m05g")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-reflected_light_source = 2
+ambient_light_source = 1
+ambient_light_color = Color(0.4, 0.4, 0.4, 1)
+ambient_light_sky_contribution = 0.45
+reflected_light_source = 1

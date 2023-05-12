@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://t0p1124c33pw"]
+
+[ext_resource type="Shader" path="res://ball stuff/clear_shader.gdshader" id="1_r40et"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r40et")
