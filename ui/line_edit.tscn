@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ku0gm2i7v5h1"]
+
+[ext_resource type="Script" path="res://ui/line_edit.gd" id="1_enof7"]
+
+[node name="LineEdit" type="LineEdit"]
+theme_override_colors/font_color = Color(0.403922, 1, 0.764706, 1)
+theme_override_colors/font_selected_color = Color(0.933333, 0.407843, 0.423529, 1)
+theme_override_colors/caret_color = Color(0, 0, 1, 1)
+theme_override_constants/minimum_character_width = 20
+theme_override_constants/caret_width = 1
+theme_override_font_sizes/font_size = 15
+caret_blink = true
+caret_blink_interval = 1.0
+caret_force_displayed = true
+script = ExtResource("1_enof7")
+
+[node name="setting label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 2.0
+offset_right = 327.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 20
+text = "difficulty level 1 "
+
+[connection signal="text_submitted" from="." to="." method="_on_text_submitted"]

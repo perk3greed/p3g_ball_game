@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=3 uid="uid://crtsvgihvy54y"]
+
+[ext_resource type="Script" path="res://ui/parent_menu.gd" id="1_55j10"]
+[ext_resource type="PackedScene" uid="uid://x4dxk8mkyq2" path="res://ui/new_button.tscn" id="2_xw467"]
+[ext_resource type="Texture2D" uid="uid://ccm3ereftum7" path="res://ui/blue-red.png" id="5_ml5f6"]
+[ext_resource type="PackedScene" uid="uid://c4h60c0bycrrh" path="res://ui/bounce_button.tscn" id="5_pa016"]
+[ext_resource type="PackedScene" uid="uid://co1apo7dhh65u" path="res://ui/settings_tab.tscn" id="6_8beew"]
+[ext_resource type="Texture2D" uid="uid://bia4008r80jus" path="res://ui/green-redtled.png" id="6_8o0gu"]
+
+[node name="menu" type="Control"]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55j10")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -242.0
+offset_right = 242.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 80
+theme_override_constants/v_separation = 80
+columns = 3
+
+[node name="Control" parent="GridContainer" instance=ExtResource("2_xw467")]
+layout_mode = 2
+level_of_button = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_ml5f6")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1472.0
+offset_top = -64.0
+offset_right = 1600.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_ml5f6")
+
+[node name="TextureButton6" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 3072.0
+offset_top = -64.0
+offset_right = 3200.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("5_ml5f6")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1600.0
+offset_top = -64.0
+offset_right = 1728.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
+
+[node name="TextureButton5" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3200.0
+offset_top = -64.0
+offset_right = 3328.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
+
+[node name="TextureButton7" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 4800.0
+offset_top = -64.0
+offset_right = 4928.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture_normal = ExtResource("6_8o0gu")
+
+[node name="CheckBox" parent="." instance=ExtResource("5_pa016")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 131.0
+offset_top = 132.0
+offset_right = 249.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings container" parent="." instance=ExtResource("6_8beew")]
+layout_mode = 0
+anchors_preset = 0
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton6" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton5" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton7" to="." method="_on_texture_button_2_pressed"]

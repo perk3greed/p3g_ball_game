@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b05gs1fx0b1ke"]
+
+[ext_resource type="Script" path="res://meshes/barrier.gd" id="1_bpr2v"]
+[ext_resource type="Texture2D" uid="uid://dq68gxtgr7rs3" path="res://icon.svg" id="1_i2htq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vtkn"]
+margin = 1.0
+size = Vector3(8, 16, 2)
+
+[node name="Area3D" type="Area3D" groups=["barrier"]]
+script = ExtResource("1_bpr2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["barrier"]]
+shape = SubResource("BoxShape3D_5vtkn")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.470588)
+pixel_size = 0.1
+texture = ExtResource("1_i2htq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

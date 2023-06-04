@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqqr4wy3r50eu"]
+
+[ext_resource type="PackedScene" uid="uid://r82mq5e7aek4" path="res://meshes/funny_slope.tscn" id="1_7j4r6"]
+[ext_resource type="PackedScene" uid="uid://chnr8p3jdy01q" path="res://meshes/subdivide_slope.tscn" id="2_an8b2"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44.2052, 0)
+visible = false
+
+[node name="funny_slope" parent="Node3D" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 35)
+
+[node name="funny_slope2" parent="Node3D" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 80)
+
+[node name="funny_slope3" parent="Node3D" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 125)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 10, 10, 350)
+visible = false
+
+[node name="funny_slope" parent="Node3D3" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 35)
+
+[node name="funny_slope2" parent="Node3D3" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 80)
+
+[node name="funny_slope3" parent="Node3D3" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 125)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(0.984808, -0.0211624, 0.172354, 0, 0.992546, 0.121869, -0.173648, -0.120018, 0.977467, 0, -48.1736, 180)
+visible = false
+
+[node name="funny_slope" parent="Node3D2" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 35)
+
+[node name="funny_slope2" parent="Node3D2" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 80)
+
+[node name="funny_slope3" parent="Node3D2" instance=ExtResource("1_7j4r6")]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 125)
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.21038, 30)
+
+[node name="subdivide_slope" parent="Node3D4" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="subdivide_slope2" parent="Node3D4" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 44)
+
+[node name="subdivide_slope3" parent="Node3D4" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 88)
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 170)
+
+[node name="subdivide_slope" parent="Node3D5" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="subdivide_slope2" parent="Node3D5" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 44)
+
+[node name="subdivide_slope3" parent="Node3D5" instance=ExtResource("2_an8b2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 88)

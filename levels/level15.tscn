@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://da21sd4wx2a6y"]
+
+[ext_resource type="PackedScene" uid="uid://d4bwqu57a3e1v" path="res://levels/level_14.tscn" id="1_jdmla"]
+[ext_resource type="PackedScene" uid="uid://ct6cq7ri2qkm0" path="res://levels/ball_to_evade.tscn" id="2_l1l0g"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_jdmla")]
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="ball_to_evade" parent="Node3D2" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 25)
+
+[node name="ball_to_evade2" parent="Node3D2" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 25)
+
+[node name="ball_to_evade3" parent="Node3D2" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 25)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 20)
+
+[node name="ball_to_evade" parent="Node3D3" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 25)
+
+[node name="ball_to_evade2" parent="Node3D3" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 25)
+
+[node name="ball_to_evade3" parent="Node3D3" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 25)
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 35)
+
+[node name="ball_to_evade" parent="Node3D4" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 25)
+
+[node name="ball_to_evade2" parent="Node3D4" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 25)
+
+[node name="ball_to_evade3" parent="Node3D4" instance=ExtResource("2_l1l0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 25)

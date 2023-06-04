@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4h60c0bycrrh"]
+
+[ext_resource type="Script" path="res://ui/bounce_button.gd" id="1_3c12p"]
+
+[node name="CheckBox" type="CheckBox"]
+offset_right = 24.0
+offset_bottom = 24.0
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.917647, 0, 0.0705882, 1)
+theme_override_colors/font_pressed_color = Color(0.0627451, 0.560784, 0.882353, 1)
+theme_override_colors/font_hover_color = Color(0.568627, 0, 0.172549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.215686, 0.470588, 0.682353, 1)
+theme_override_font_sizes/font_size = 20
+text = "bouncing
+mode"
+script = ExtResource("1_3c12p")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

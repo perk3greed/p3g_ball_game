@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://co1apo7dhh65u"]
+
+[ext_resource type="PackedScene" uid="uid://ku0gm2i7v5h1" path="res://ui/line_edit.tscn" id="1_14nfr"]
+
+[node name="settings container" type="VBoxContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 44.0
+grow_vertical = 2
+
+[node name="LineEdit" parent="." instance=ExtResource("1_14nfr")]
+layout_mode = 2
+what_setting = "difficulty1"
+defolt_setting = 1000
+
+[node name="LineEdit2" parent="." instance=ExtResource("1_14nfr")]
+layout_mode = 2
+what_setting = "difficulty2"
+defolt_setting = 35000
+
+[node name="LineEdit3" parent="." instance=ExtResource("1_14nfr")]
+layout_mode = 2
+what_setting = "difficulty3"
+defolt_setting = 55000
+
+[node name="LineEdit4" parent="." instance=ExtResource("1_14nfr")]
+layout_mode = 2
+what_setting = "difficulty4"
+defolt_setting = 90000

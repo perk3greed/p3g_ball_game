@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://buh7bcq4oxlrw"]
+
+[resource]
+resource_local_to_scene = true
+albedo_color = Color(0.654902, 0.0156863, 0.894118, 1)
+metallic_specular = 0.0
+backlight = Color(0.431373, 0.431373, 0.431373, 1)

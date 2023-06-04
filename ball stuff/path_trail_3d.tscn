@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cim6xwrk7a3cj"]
+
+[ext_resource type="Script" path="res://ball stuff/tail_path.gd" id="1_pw3u3"]
+[ext_resource type="PackedScene" uid="uid://8hjhk6vpa7kx" path="res://tail_for_ball.tscn" id="2_by3dw"]
+
+[sub_resource type="Curve3D" id="Curve3D_7e8x2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, -0.5, 0, 0, 0),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+up_vector_enabled = false
+
+[sub_resource type="Shader" id="Shader_awbd2"]
+resource_local_to_scene = true
+code = "// NOTE: Shader automatically converted from Godot Engine 4.0.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode 
+blend_mix
+, depth_draw_opaque
+, cull_back,diffuse_burley
+,specular_schlick_ggx
+, unshaded,shadows_disabled;
+
+void fragment() {
+	ALBEDO = vec3(0.8, 0.2, 0.3);
+	ALPHA = 0.7;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_150g2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_awbd2")
+
+[node name="Path3D" type="Path3D"]
+curve = SubResource("Curve3D_7e8x2")
+script = ExtResource("1_pw3u3")
+
+[node name="CSGPolygon3D4" parent="." instance=ExtResource("2_by3dw")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.2, -0.2)
+material = SubResource("ShaderMaterial_150g2")
